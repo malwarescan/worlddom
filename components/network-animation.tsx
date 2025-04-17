@@ -93,4 +93,3 @@ export default function NetworkAnimation({ dense = false }: NetworkAnimationProp
 
   return <canvas ref={canvasRef} className="w-full h-full" />
 }
-

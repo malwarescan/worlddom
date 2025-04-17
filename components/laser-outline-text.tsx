@@ -34,4 +34,3 @@ export default function LaserOutlineText({ text, className = "" }: LaserOutlineT
     </div>
   )
 }
-

@@ -329,4 +329,3 @@ const timelineSteps = [
     ],
   },
 ]
-

@@ -241,4 +241,3 @@ const additionalServices = [
     features: ["Quality control automation", "Production optimization", "Supply chain management", "Defect detection"],
   },
 ]
-

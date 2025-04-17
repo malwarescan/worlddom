@@ -57,4 +57,3 @@ export default function RecommendedSolutions({ results, businessData }: Recommen
     </div>
   )
 }
-

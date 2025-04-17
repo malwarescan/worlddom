@@ -5,6 +5,9 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
+// Add this function to dynamically set the favicon based on the current path
+import { headers } from "next/headers"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -47,13 +50,27 @@ export const metadata: Metadata = {
     generator: 'v0.dev'
 }
 
+// Update the RootLayout function to include dynamic favicon logic
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const headersList = headers()
+  const pathname = headersList.get("x-pathname") || ""
+  const isViontraPage = pathname.includes("/viontra")
+
   return (
     <html lang="en">
+      <head>
+        {isViontraPage && (
+          <>
+            <link rel="icon" href="/viontra-favicon.svg" type="image/svg+xml" />
+            <link rel="apple-touch-icon" href="/viontra-icon-192.png" />
+            <link rel="manifest" href="/viontra-manifest.json" />
+          </>
+        )}
+      </head>
       <body className={`${inter.className} min-h-screen flex flex-col bg-[#070914] text-white overflow-x-hidden`}>
         <Header />
         <main className="flex-grow pt-16 md:pt-20 w-full max-w-full overflow-x-hidden">{children}</main>
@@ -62,7 +79,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'

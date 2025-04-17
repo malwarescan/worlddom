@@ -10,4 +10,3 @@ export default function TechItem({ tech }: TechItemProps) {
     </li>
   )
 }
-

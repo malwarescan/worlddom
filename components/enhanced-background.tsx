@@ -183,4 +183,3 @@ export default function EnhancedBackground({
     <canvas ref={canvasRef} className="fixed inset-0 w-full h-full z-[-1] pointer-events-auto" aria-hidden="true" />
   )
 }
-

@@ -38,4 +38,3 @@ export default function GlossyText({ text, className = "" }: GlossyTextProps) {
     </div>
   )
 }
-

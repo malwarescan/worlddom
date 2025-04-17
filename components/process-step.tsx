@@ -30,4 +30,3 @@ export default function ProcessStep({ icon: Icon, title, description, step, dela
     </motion.div>
   )
 }
-

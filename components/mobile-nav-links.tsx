@@ -38,4 +38,3 @@ export default function MobileNavLinks({ onLinkClick }: MobileNavLinksProps) {
     </nav>
   )
 }
-

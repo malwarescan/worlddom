@@ -65,27 +65,33 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Services</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-indigo-300 transition-colors">
+                <Link href="/services/ai-consulting" className="text-gray-400 hover:text-indigo-300 transition-colors">
                   AI Consulting
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-indigo-300 transition-colors">
+                <Link
+                  href="/services/neural-network-development"
+                  className="text-gray-400 hover:text-indigo-300 transition-colors"
+                >
                   Neural Network Development
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-indigo-300 transition-colors">
+                <Link
+                  href="/services/machine-learning-solutions"
+                  className="text-gray-400 hover:text-indigo-300 transition-colors"
+                >
                   Machine Learning Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-indigo-300 transition-colors">
+                <Link href="/services/data-analysis" className="text-gray-400 hover:text-indigo-300 transition-colors">
                   Data Analysis
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-indigo-300 transition-colors">
+                <Link href="/services/ai-integration" className="text-gray-400 hover:text-indigo-300 transition-colors">
                   AI Integration
                 </Link>
               </li>
@@ -143,4 +149,3 @@ export default function Footer() {
     </footer>
   )
 }
-

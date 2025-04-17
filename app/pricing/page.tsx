@@ -206,4 +206,3 @@ const faqs = [
       "We accept all major credit cards and PayPal. For Enterprise plans, we can also accommodate invoicing and purchase orders.",
   },
 ]
-

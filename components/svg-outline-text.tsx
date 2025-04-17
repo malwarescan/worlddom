@@ -137,4 +137,3 @@ export default function SvgOutlineText({ text, className = "" }: SvgOutlineTextP
     </div>
   )
 }
-

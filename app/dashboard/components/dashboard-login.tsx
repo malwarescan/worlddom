@@ -115,4 +115,3 @@ export default function DashboardLogin() {
     </div>
   )
 }
-

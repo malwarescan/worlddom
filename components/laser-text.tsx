@@ -36,4 +36,3 @@ export default function LaserText({ text, className = "" }: LaserTextProps) {
     </div>
   )
 }
-

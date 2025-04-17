@@ -1,102 +1,99 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import NavLinks from "@/components/nav-links"
+import { useState } from "react"
+import { cn } from "@/lib/utils"
 import MobileNavLinks from "@/components/mobile-nav-links"
+import SocialLinks from "@/components/social-links"
+
+const siteConfig = {
+  name: "Neural Command",
+  description: "AI-Powered Neural Network Solutions for Business",
+  url: "https://dominatethe.world",
+  ogImage: "https://dominatethe.world/og.jpg",
+  links: {
+    twitter: "https://twitter.com/neuralcommand",
+    linkedin: "https://www.linkedin.com/company/neural-command-llc/",
+    github: "https://github.com/neuralcommand",
+    facebook: "https://facebook.com/neuralcommand",
+  },
+}
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  // Fix for mobile menu misalignment
-  useEffect(() => {
-    // When menu is open, prevent body scroll
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-      document.body.style.paddingRight = "0px" // Prevent layout shift
-    } else {
-      // When menu is closed, restore scroll
-      document.body.style.overflow = ""
-      document.body.style.paddingRight = ""
-    }
-
-    return () => {
-      // Cleanup on unmount
-      document.body.style.overflow = ""
-      document.body.style.paddingRight = ""
-    }
-  }, [isOpen])
-
-  const handleMenuOpen = () => setIsOpen(true)
-  const handleMenuClose = () => setIsOpen(false)
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-indigo-500/30 rounded-md flex items-center justify-center">
-              <div className="w-4 h-4 bg-indigo-300 rounded-sm"></div>
-            </div>
-            <span className="font-bold text-white text-lg hidden sm:inline-block">NEURAL COMMAND</span>
+    <header className="bg-[#050813] border-b border-indigo-900/20 fixed top-0 left-0 w-full z-20">
+      <div className="container mx-auto px-4 md:px-6 py-4 header-container">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="text-white text-lg font-bold header-logo">
+            Neural Command
           </Link>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <NavLinks />
-            <div>
-              <Link href="/checkout?plan=growth">
-                <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">Get Started</Button>
-              </Link>
-            </div>
+          <div className="hidden md:flex items-center space-x-6">
+            <NavigationLinks />
+            <SocialLinks />
           </div>
 
-          <div className="md:hidden">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild onClick={handleMenuOpen}>
-                <Button variant="ghost" className="p-2 text-white hover:bg-indigo-500/10">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent
-                side="right"
-                className="w-[300px] sm:w-[400px] bg-[#050813] border-indigo-900/20"
-                onInteractOutside={handleMenuClose}
-                onEscapeKeyDown={handleMenuClose}
-              >
-                <div className="flex flex-col h-full">
-                  <div className="flex items-center justify-between mb-8 mt-2">
-                    <Link href="/" className="flex items-center space-x-2" onClick={handleMenuClose}>
-                      <div className="w-8 h-8 bg-indigo-500/30 rounded-md flex items-center justify-center">
-                        <div className="w-4 h-4 bg-indigo-300 rounded-sm"></div>
-                      </div>
-                      <span className="font-bold text-white text-lg">NEURAL COMMAND</span>
-                    </Link>
-                  </div>
-                  <MobileNavLinks onLinkClick={handleMenuClose} />
-                  <div className="mt-auto pt-8">
-                    <Link href="/checkout?plan=growth" className="w-full" onClick={handleMenuClose}>
-                      <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">Get Started</Button>
-                    </Link>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden text-gray-400 hover:text-white transition-colors mobile-menu-button"
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? (
+              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  fillRule="evenodd"
+                  d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.829-4.828 4.828a1 1 0 0 1-1.414-1.414l4.829-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.829 4.828-4.828a1 1 0 0 1 1.414 1.414l-4.829 4.829 4.828 4.828z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            ) : (
+              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  fillRule="evenodd"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={cn(
+            "fixed top-0 right-0 w-64 h-full bg-[#050813] border-l border-indigo-900/20 shadow-xl transform transition-transform duration-300 ease-in-out",
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
+          )}
+        >
+          <div className="flex flex-col h-full">
+            <div className="p-4 border-b border-indigo-900/20 flex justify-between items-center mobile-menu-header">
+              <span className="text-white text-lg font-bold">Neural Command</span>
+              <button onClick={toggleMobileMenu} className="text-gray-400 hover:text-white transition-colors">
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    fillRule="evenodd"
+                    d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.829-4.828 4.828a1 1 0 0 1-1.414-1.414l4.829-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.829 4.828-4.828a1 1 0 0 1 1.414 1.414l-4.829 4.829 4.828 4.828z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div className="p-4 flex-grow flex flex-col mobile-menu-links">
+              <MobileNavLinks onLinkClick={toggleMobileMenu} />
+            </div>
+
+            <div className="p-4 border-t border-indigo-900/20 text-center mobile-menu-footer">
+              <SocialLinks />
+            </div>
           </div>
         </div>
       </div>
@@ -104,3 +101,33 @@ export default function Header() {
   )
 }
 
+function NavigationLinks() {
+  const pathname = usePathname()
+
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/contact", label: "Contact" },
+  ]
+
+  return (
+    <nav className="flex space-x-6">
+      {links.map((link) => {
+        const isActive = pathname === link.href
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`text-gray-400 hover:text-indigo-300 transition-colors font-medium ${
+              isActive ? "text-white" : ""
+            }`}
+          >
+            {link.label}
+          </Link>
+        )
+      })}
+    </nav>
+  )
+}

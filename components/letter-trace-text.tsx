@@ -34,4 +34,3 @@ export default function LetterTraceText({ text, className = "" }: LetterTraceTex
     </div>
   )
 }
-

@@ -81,4 +81,3 @@ const faqs = [
       "Yes, our Agentic Search solutions are designed to integrate with your existing infrastructure. We support integration with databases, document management systems, CRMs, ERPs, and custom internal tools through our extensive API framework and pre-built connectors for popular enterprise systems.",
   },
 ]
-

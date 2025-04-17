@@ -1,0 +1,35 @@
+.hoverEffect {
+  position: relative;
+}
+
+.hoverEffect::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.hoverEffect:hover::after {
+  width: 100%;
+}
+
+.scrollGallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.galleryItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.galleryItem:hover {
+  transform: translateY(-8px);
+}

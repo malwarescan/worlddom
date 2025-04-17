@@ -123,4 +123,3 @@ const testimonials = [
       "Neural Command's market intelligence solution provides insights we never thought possible. It's like having a crystal ball for market trends and competitor movements.",
   },
 ]
-

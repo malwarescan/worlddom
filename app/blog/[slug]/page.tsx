@@ -630,4 +630,3 @@ const blogPosts = [
     ],
   },
 ]
-

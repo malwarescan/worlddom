@@ -32,4 +32,3 @@ const clients = [
   { name: "HealthAI Systems", icon: "🏥" },
   { name: "FinTech Pioneers", icon: "💹" },
 ]
-

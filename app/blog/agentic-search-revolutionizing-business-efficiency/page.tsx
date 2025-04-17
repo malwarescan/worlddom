@@ -404,4 +404,3 @@ export default function AgenticSearchPost() {
     </div>
   )
 }
-

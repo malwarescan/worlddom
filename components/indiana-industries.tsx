@@ -84,4 +84,3 @@ const indianaIndustries = [
     description: "AI solutions for public service delivery, resource allocation, and community engagement.",
   },
 ]
-

@@ -115,4 +115,3 @@ const partnershipBenefits = [
       "Receive AI implementations tailored to the specific needs of Indiana industries and markets, with solutions designed to address regional challenges and opportunities.",
   },
 ]
-

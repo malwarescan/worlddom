@@ -50,4 +50,3 @@ export default function GlowingButton({ href, children, className = "", variant 
     </Link>
   )
 }
-

@@ -96,4 +96,3 @@ const indianaBlogPosts = [
       "Discover how traditional manufacturing companies in South Bend are implementing neural network solutions to optimize operations and gain a competitive edge in global markets.",
   },
 ]
-

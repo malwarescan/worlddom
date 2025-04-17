@@ -106,4 +106,3 @@ async function generateSitemap() {
 
 // Run the generator
 generateSitemap()
-

@@ -104,4 +104,3 @@ function ChartTooltipContent({ active, payload, label }: TooltipProps<ValueType,
 }
 
 export { ChartContainer, ChartTooltip, ChartTooltipContent }
-

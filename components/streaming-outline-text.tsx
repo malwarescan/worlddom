@@ -60,4 +60,3 @@ export default function StreamingOutlineText({ text, className = "" }: Streaming
     </div>
   )
 }
-

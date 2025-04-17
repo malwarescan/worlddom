@@ -171,4 +171,3 @@ export default function InteractiveParticles({
 
   return <canvas ref={canvasRef} className={`${className} pointer-events-auto`} aria-hidden="true" />
 }
-

@@ -32,14 +32,14 @@ export default function LearnPage() {
               </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
               <GlassGlowText text="Your Website Should Work For You" />
               <span className="block text-xl sm:text-2xl md:text-3xl mt-2 text-indigo-300">
                 Not The Other Way Around
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto">
               Tired of endless back-and-forth with developers? Our AI-powered platform eliminates the frustration and
               delivers
               <span className="text-indigo-300 font-medium"> results that grow your business</span>, with zero technical
@@ -47,8 +47,8 @@ export default function LearnPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/checkout?plan=business">
-                <Button className="bg-gradient-primary hover:opacity-90 text-white btn-animate px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg w-full sm:w-auto">
+              <Link href="/checkout?plan=business" className="w-full sm:w-auto">
+                <Button className="bg-gradient-primary hover:opacity-90 text-white btn-animate px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg w-full">
                   Get Started <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -58,28 +58,28 @@ export default function LearnPage() {
       </section>
 
       {/* Pain Points Section */}
-      <section className="relative py-12 md:py-24 flex items-center justify-center">
+      <section className="relative py-8 md:py-24 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center">
           <RevealOnScroll>
-            <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white">
                 <GlassGlowText text="The Old Way Is Broken" />
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
                 If you've ever worked with web developers, this probably sounds familiar...
               </p>
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
             {painPoints.map((point, index) => (
               <RevealOnScroll key={index} delay={index * 0.1}>
-                <div className="card-gradient border border-red-500/20 rounded-lg p-6 h-full flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center mb-4">
-                    <X className="h-6 w-6 text-red-400" />
+                <div className="card-gradient border border-red-500/20 rounded-lg p-4 md:p-6 h-full flex flex-col items-center text-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-red-500/20 flex items-center justify-center mb-3 md:mb-4">
+                    <X className="h-5 w-5 md:h-6 md:w-6 text-red-400" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{point.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-300">{point.description}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3 text-white">{point.title}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-300">{point.description}</p>
                 </div>
               </RevealOnScroll>
             ))}
@@ -88,28 +88,28 @@ export default function LearnPage() {
       </section>
 
       {/* Solution Section */}
-      <section className="relative py-12 md:py-24 flex items-center justify-center">
+      <section className="relative py-8 md:py-24 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center">
           <RevealOnScroll>
-            <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white">
                 <GlassGlowText text="Introducing The AI-Powered Way" />
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Our conversational AI platform eliminates the middleman and delivers results, not excuses.
               </p>
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
             {solutionPoints.map((point, index) => (
               <RevealOnScroll key={index} delay={index * 0.1}>
-                <div className="card-gradient border border-indigo-500/20 rounded-lg p-6 h-full hover-glow-blue transition-all duration-300 flex flex-col items-center text-center">
-                  <div className="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-4">
-                    <point.icon className="h-6 w-6 text-indigo-400" />
+                <div className="card-gradient border border-indigo-500/20 rounded-lg p-4 md:p-6 h-full hover-glow-blue transition-all duration-300 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-3 md:mb-4">
+                    <point.icon className="h-5 w-5 md:h-6 md:w-6 text-indigo-400" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{point.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-300">{point.description}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3 text-white">{point.title}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-300">{point.description}</p>
                 </div>
               </RevealOnScroll>
             ))}
@@ -118,14 +118,14 @@ export default function LearnPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="relative py-12 md:py-24 bg-indigo-900/10 flex items-center justify-center">
+      <section className="relative py-8 md:py-24 bg-indigo-900/10 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center">
           <RevealOnScroll>
-            <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white">
                 <GlassGlowText text="How It Works" />
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Getting started is simple. No coding, no technical knowledge required.
               </p>
             </div>
@@ -134,25 +134,27 @@ export default function LearnPage() {
           <div className="max-w-5xl mx-auto w-full">
             {steps.map((step, index) => (
               <RevealOnScroll key={index} delay={index * 0.1}>
-                <div className="relative mb-8 md:mb-12 flex flex-col items-center">
+                <div className="relative mb-6 md:mb-12 flex flex-col items-center">
                   <div className="flex flex-col md:flex-row items-start w-full">
-                    <div className="flex flex-col items-center mr-0 md:mr-6 mb-4 md:mb-0">
-                      <div className="w-12 h-12 rounded-full bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center flex-shrink-0">
+                    <div className="flex flex-col items-center mr-0 md:mr-6 mb-3 md:mb-0">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center flex-shrink-0">
                         <span className="text-indigo-300 font-bold">{index + 1}</span>
                       </div>
                       {index < steps.length - 1 && (
                         <div className="hidden md:block h-full w-0.5 bg-indigo-500/20 my-2"></div>
                       )}
                     </div>
-                    <div className="card-gradient border border-indigo-500/20 rounded-lg p-4 sm:p-6 flex-grow text-center md:text-left">
-                      <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{step.title}</h3>
-                      <p className="text-sm sm:text-base text-gray-300 mb-4">{step.description}</p>
+                    <div className="card-gradient border border-indigo-500/20 rounded-lg p-3 sm:p-4 md:p-6 flex-grow text-center md:text-left">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 md:mb-3 text-white">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-3 md:mb-4">{step.description}</p>
                       {step.features && (
-                        <ul className="space-y-2 mx-auto md:mx-0 max-w-md text-left">
+                        <ul className="space-y-1 md:space-y-2 mx-auto md:mx-0 max-w-md text-left">
                           {step.features.map((feature, i) => (
                             <li key={i} className="flex items-start">
-                              <Check className="h-5 w-5 text-indigo-400 mr-3 flex-shrink-0 mt-0.5" />
-                              <span className="text-sm sm:text-base text-gray-300">{feature}</span>
+                              <Check className="h-4 w-4 md:h-5 md:w-5 text-indigo-400 mr-2 md:mr-3 flex-shrink-0 mt-0.5" />
+                              <span className="text-xs sm:text-sm md:text-base text-gray-300">{feature}</span>
                             </li>
                           ))}
                         </ul>
@@ -167,34 +169,36 @@ export default function LearnPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative py-12 md:py-24 flex items-center justify-center">
+      <section className="relative py-8 md:py-24 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center">
           <RevealOnScroll>
-            <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white">
                 <GlassGlowText text="What Our Customers Say" />
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Business owners just like you are already seeing results.
               </p>
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <RevealOnScroll key={index} delay={index * 0.1}>
-                <div className="card-gradient border border-indigo-500/20 rounded-lg p-4 sm:p-6 h-full hover-glow-blue transition-all duration-300 flex flex-col items-center text-center">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-indigo-500/20 flex items-center justify-center mr-3 sm:mr-4">
-                      <span className="text-indigo-300 font-bold">{testimonial.initials}</span>
+                <div className="card-gradient border border-indigo-500/20 rounded-lg p-4 md:p-6 h-full hover-glow-blue transition-all duration-300 flex flex-col items-center text-center">
+                  <div className="flex items-center mb-3 md:mb-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-indigo-500/20 flex items-center justify-center mr-2 sm:mr-3 md:mr-4">
+                      <span className="text-indigo-300 font-bold text-xs sm:text-sm">{testimonial.initials}</span>
                     </div>
                     <div>
-                      <h4 className="font-bold text-white text-sm sm:text-base">{testimonial.name}</h4>
-                      <p className="text-gray-400 text-xs sm:text-sm">{testimonial.business}</p>
+                      <h4 className="font-bold text-white text-xs sm:text-sm md:text-base">{testimonial.name}</h4>
+                      <p className="text-gray-400 text-xs md:text-sm">{testimonial.business}</p>
                     </div>
                   </div>
-                  <p className="text-sm sm:text-base text-gray-300 italic mb-4">"{testimonial.quote}"</p>
-                  <div className="flex text-yellow-400">
+                  <p className="text-xs sm:text-sm md:text-base text-gray-300 italic mb-3 md:mb-4">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="flex text-yellow-400 text-xs sm:text-sm">
                     {[...Array(5)].map((_, i) => (
                       <span key={i}>★</span>
                     ))}
@@ -207,25 +211,25 @@ export default function LearnPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-12 md:py-24 bg-indigo-900/10 flex items-center justify-center">
+      <section className="relative py-8 md:py-24 bg-indigo-900/10 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center">
           <RevealOnScroll>
-            <div className="text-center mb-10 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 text-white">
                 <GlassGlowText text="Frequently Asked Questions" />
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Everything you need to know about our AI-powered web platform.
               </p>
             </div>
           </RevealOnScroll>
 
-          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6 w-full">
+          <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4 md:space-y-6 w-full">
             {faqs.map((faq, index) => (
               <RevealOnScroll key={index} delay={index * 0.1}>
-                <div className="card-gradient border border-indigo-500/20 rounded-lg p-4 sm:p-6 text-center">
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">{faq.question}</h3>
-                  <p className="text-sm sm:text-base text-gray-300">{faq.answer}</p>
+                <div className="card-gradient border border-indigo-500/20 rounded-lg p-3 sm:p-4 md:p-6 text-center">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-white">{faq.question}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-300">{faq.answer}</p>
                 </div>
               </RevealOnScroll>
             ))}
@@ -234,23 +238,23 @@ export default function LearnPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-12 md:py-24 flex items-center justify-center">
+      <section className="relative py-8 md:py-24 flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-6 flex flex-col items-center">
           <RevealOnScroll>
-            <div className="max-w-4xl mx-auto text-center bg-indigo-900/20 border border-indigo-500/30 rounded-xl p-6 sm:p-8 md:p-12 glow-border">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white">
+            <div className="max-w-4xl mx-auto text-center bg-indigo-900/20 border border-indigo-500/30 rounded-xl p-4 sm:p-6 md:p-12 glow-border">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-white">
                 Ready to Stop Fighting With Your Website?
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-xl text-gray-300 mb-4 sm:mb-6 md:mb-8 max-w-3xl mx-auto">
                 Join businesses that have eliminated developer headaches and are seeing real results with our AI-powered
                 platform.
               </p>
-              <Link href="/checkout?plan=business">
-                <Button className="bg-gradient-primary hover:opacity-90 text-white btn-animate px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg w-full sm:w-auto">
-                  Get Started Now <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/checkout?plan=business" className="block w-full sm:inline-block sm:w-auto">
+                <Button className="bg-gradient-primary hover:opacity-90 text-white btn-animate px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-lg w-full sm:w-auto">
+                  Get Started Now <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </Link>
-              <p className="text-xs sm:text-sm text-gray-400 mt-4">
+              <p className="text-xs md:text-sm text-gray-400 mt-3 md:mt-4">
                 No technical knowledge required. 30-day satisfaction guarantee.
               </p>
             </div>
@@ -419,4 +423,3 @@ const faqs = [
       "No. All plans include unlimited change requests. Our AI handles the implementation, so you're never charged extra for modifications.",
   },
 ]
-

@@ -23,4 +23,3 @@ export default function ResponsiveContainer({ children, className, maxWidth = "x
     </div>
   )
 }
-

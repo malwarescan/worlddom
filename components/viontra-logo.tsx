@@ -17,4 +17,3 @@ export default function ViontraLogo({ className = "", size = "md" }: ViontraLogo
     </div>
   )
 }
-

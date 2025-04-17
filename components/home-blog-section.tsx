@@ -57,4 +57,3 @@ const blogPosts = [
       "Explore how advanced neural architectures are transforming medical diagnostics, improving accuracy, and enabling early detection of conditions.",
   },
 ]
-

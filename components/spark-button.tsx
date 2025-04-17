@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useRef, type ReactNode } from "react"
+import { useState, useRef, type ReactNode, useEffect } from "react"
 import { Button, type ButtonProps } from "@/components/ui/button"
 
 interface SparkButtonProps extends ButtonProps {
@@ -13,13 +13,27 @@ interface SparkButtonProps extends ButtonProps {
 
 export default function SparkButton({
   children,
-  sparkColor = "rgba(92, 108, 245, 0.8)",
-  sparkCount = 6,
+  sparkColor = "rgba(92, 108, 245, 0.6)", // More transparent
+  sparkCount = 4, // Reduced from 6
   ...props
 }: SparkButtonProps) {
   const [sparks, setSparks] = useState<Array<{ id: number; x: number; y: number; angle: number; size: number }>>([])
   const buttonRef = useRef<HTMLButtonElement>(null)
   const nextId = useRef(0)
+  const throttleRef = useRef(false)
+
+  // Cleanup function to remove old sparks
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSparks((prev) => {
+        // Keep only sparks that were created in the last 800ms
+        const now = Date.now()
+        return prev.filter((spark) => spark.id > nextId.current - 20)
+      })
+    }, 500)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!buttonRef.current) return
@@ -35,21 +49,44 @@ export default function SparkButton({
       x,
       y,
       angle: Math.random() * Math.PI * 2,
-      size: Math.random() * 2 + 1,
+      size: Math.random() * 2 + 1, // Smaller sparks
     }))
 
-    setSparks([...sparks, ...newSparks])
+    setSparks((prev) => [...prev, ...newSparks])
+  }
 
-    // Remove sparks after animation completes
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!buttonRef.current || throttleRef.current) return
+
+    // Throttle to improve performance
+    throttleRef.current = true
     setTimeout(() => {
-      setSparks((prev) => prev.filter((spark) => !newSparks.find((s) => s.id === spark.id)))
-    }, 600)
+      throttleRef.current = false
+    }, 100)
+
+    // Only create sparks occasionally
+    if (Math.random() > 0.9) {
+      const rect = buttonRef.current.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+
+      const newSpark = {
+        id: nextId.current++,
+        x,
+        y,
+        angle: Math.random() * Math.PI * 2,
+        size: Math.random() * 1.5 + 0.5, // Smaller hover sparks
+      }
+
+      setSparks((prev) => [...prev, newSpark])
+    }
   }
 
   return (
     <Button
       ref={buttonRef}
       onClick={handleClick}
+      onMouseMove={handleMouseMove}
       {...props}
       className={`relative overflow-hidden ${props.className || ""}`}
     >
@@ -75,6 +112,7 @@ export default function SparkButton({
                 "--translateX": `${translateX}px`,
                 "--translateY": `${translateY}px`,
                 animation: "spark 600ms ease-out forwards",
+                opacity: 0.8,
               } as React.CSSProperties
             }
           />
@@ -83,4 +121,3 @@ export default function SparkButton({
     </Button>
   )
 }
-

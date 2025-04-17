@@ -94,9 +94,11 @@ export default function ViontraPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Use Case 1 */}
-            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
-              <h3 className="text-2xl font-bold mb-4 text-white">Intelligent Onboarding</h3>
-              <p className="text-gray-300">
+            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 group cursor-pointer transform hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors duration-300">
+                Intelligent Onboarding
+              </h3>
+              <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
                 Viontra's Smart Forms transform basic submissions into actionable marketing assets. The system scrapes
                 SEO data and social metadata in real time, then auto-generates CRM profiles, landing pages, and
                 pre-filled funnels—all personalized from the very first input.
@@ -104,9 +106,11 @@ export default function ViontraPage() {
             </div>
 
             {/* Use Case 2 */}
-            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
-              <h3 className="text-2xl font-bold mb-4 text-white">Funnel Automation</h3>
-              <p className="text-gray-300">
+            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 group cursor-pointer transform hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors duration-300">
+                Funnel Automation
+              </h3>
+              <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
                 By connecting to GoHighLevel's API, Viontra programmatically clones and deploys funnel templates based
                 on industry, goals, and user data. This allows your business to move from interest to conversion faster,
                 with less manual setup.
@@ -114,18 +118,22 @@ export default function ViontraPage() {
             </div>
 
             {/* Use Case 3 */}
-            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
-              <h3 className="text-2xl font-bold mb-4 text-white">Centralized Marketing Control</h3>
-              <p className="text-gray-300">
+            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 group cursor-pointer transform hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors duration-300">
+                Centralized Marketing Control
+              </h3>
+              <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
                 Viontra functions as a digital operations hub. Users can manage their website, CRM, SEO, ad presence,
                 and business profiles—all from a single dashboard designed for clarity, speed, and scale.
               </p>
             </div>
 
             {/* Use Case 4 */}
-            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
-              <h3 className="text-2xl font-bold mb-4 text-white">AI-Powered Content Scraping</h3>
-              <p className="text-gray-300">
+            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 group cursor-pointer transform hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors duration-300">
+                AI-Powered Content Scraping
+              </h3>
+              <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
                 Through automated crawling of public business websites and social pages, Viontra intelligently gathers
                 relevant headlines, descriptions, images, and metadata to enhance copywriting, page optimization, and
                 campaign assets.
@@ -133,9 +141,11 @@ export default function ViontraPage() {
             </div>
 
             {/* Use Case 5 */}
-            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
-              <h3 className="text-2xl font-bold mb-4 text-white">Niche-Specific Funnel Matching</h3>
-              <p className="text-gray-300">
+            <div className="bg-[#0c1225] p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 group cursor-pointer transform hover:-translate-y-1">
+              <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors duration-300">
+                Niche-Specific Funnel Matching
+              </h3>
+              <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
                 Viontra not only deploys funnels—it selects the right one. Based on scraped input and business logic,
                 the platform identifies and populates the most appropriate funnel template, reducing friction and
                 increasing relevance at launch.
@@ -153,24 +163,32 @@ export default function ViontraPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Built For</h2>
 
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex items-start">
-              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1" />
-              <p className="text-lg text-gray-300">Digital agencies managing multiple clients</p>
+            <div className="flex items-start group cursor-pointer">
+              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1 group-hover:text-indigo-400 transition-colors duration-300 transform group-hover:scale-110" />
+              <p className="text-lg text-gray-300 group-hover:text-white transition-colors duration-300">
+                Digital agencies managing multiple clients
+              </p>
             </div>
 
-            <div className="flex items-start">
-              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1" />
-              <p className="text-lg text-gray-300">SaaS resellers looking to automate onboarding</p>
+            <div className="flex items-start group cursor-pointer">
+              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1 group-hover:text-indigo-400 transition-colors duration-300 transform group-hover:scale-110" />
+              <p className="text-lg text-gray-300 group-hover:text-white transition-colors duration-300">
+                SaaS resellers looking to automate onboarding
+              </p>
             </div>
 
-            <div className="flex items-start">
-              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1" />
-              <p className="text-lg text-gray-300">Coaches, consultants, and local service providers</p>
+            <div className="flex items-start group cursor-pointer">
+              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1 group-hover:text-indigo-400 transition-colors duration-300 transform group-hover:scale-110" />
+              <p className="text-lg text-gray-300 group-hover:text-white transition-colors duration-300">
+                Coaches, consultants, and local service providers
+              </p>
             </div>
 
-            <div className="flex items-start">
-              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1" />
-              <p className="text-lg text-gray-300">Marketing teams needing speed, consistency, and control</p>
+            <div className="flex items-start group cursor-pointer">
+              <CheckCircle className="text-indigo-500 mr-3 h-6 w-6 flex-shrink-0 mt-1 group-hover:text-indigo-400 transition-colors duration-300 transform group-hover:scale-110" />
+              <p className="text-lg text-gray-300 group-hover:text-white transition-colors duration-300">
+                Marketing teams needing speed, consistency, and control
+              </p>
             </div>
           </div>
 
@@ -190,16 +208,16 @@ export default function ViontraPage() {
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="https://viontra.io" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 rounded-md text-lg font-medium">
+              <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 rounded-md text-lg font-medium transform hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-indigo-500/20">
                 Visit viontra.io
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </a>
 
             <Link href="/contact">
               <Button
                 variant="outline"
-                className="border-indigo-500 text-white hover:bg-indigo-950 px-8 py-6 rounded-md text-lg font-medium"
+                className="border-indigo-500 text-white hover:bg-indigo-950 px-8 py-6 rounded-md text-lg font-medium transform hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-indigo-500/20"
               >
                 Contact Neural Command
               </Button>
@@ -224,7 +242,7 @@ export default function ViontraPage() {
           <p className="text-lg text-emerald-400 mb-10">Powered by AI. Built for scale.</p>
 
           <a href="https://viontra.io" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 rounded-md text-lg font-medium">
+            <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-6 rounded-md text-lg font-medium transform hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-indigo-500/20">
               Launch Control Panel
             </Button>
           </a>
@@ -244,9 +262,9 @@ export default function ViontraPage() {
             <p className="text-emerald-400 italic mb-8">"It's not a form — it's your launch sequence."</p>
 
             <a href="https://viontra.io" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-indigo-600 to-emerald-500 hover:from-indigo-700 hover:to-emerald-600 text-white px-8 py-4 rounded-md text-lg font-medium">
+              <Button className="bg-gradient-to-r from-indigo-600 to-emerald-500 hover:from-indigo-700 hover:to-emerald-600 text-white px-8 py-4 rounded-md text-lg font-medium transform hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-indigo-500/20">
                 <span className="mr-2">🚀</span> Start Smart. Launch Fast.
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </a>
           </div>
@@ -255,4 +273,3 @@ export default function ViontraPage() {
     </div>
   )
 }
-

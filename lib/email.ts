@@ -49,4 +49,3 @@ export async function sendContactEmail(data: {
   // Send email
   return transporter.sendMail(mailOptions)
 }
-

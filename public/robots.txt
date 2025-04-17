@@ -8,4 +8,3 @@ Sitemap: https://dominatethe.world/sitemap.xml
 # Disallow admin areas if they exist
 Disallow: /admin/
 Disallow: /wp-admin/
-

@@ -42,4 +42,3 @@ export default function GlassGlowText({ text, className = "" }: GlassGlowTextPro
     </div>
   )
 }
-

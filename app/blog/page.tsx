@@ -1,233 +1,210 @@
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
-import NetworkAnimation from "@/components/network-animation"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "AI Insights & Industry Expertise | Neural Command Blog",
+  title: "Blog | Neural Command",
   description:
-    "Explore the latest insights on neural networks, AI implementation strategies, and industry-specific applications from Neural Command's team of AI experts.",
-  keywords:
-    "AI blog, neural network insights, artificial intelligence trends, business AI applications, machine learning expertise, Neural Command",
+    "Explore the latest insights on AI, machine learning, and neural networks from Neural Command's expert team.",
   openGraph: {
-    title: "AI Insights & Industry Expertise | Neural Command Blog",
+    title: "Blog | Neural Command",
     description:
-      "Explore the latest insights on neural networks, AI implementation strategies, and industry-specific applications.",
+      "Explore the latest insights on AI, machine learning, and neural networks from Neural Command's expert team.",
+    url: "https://dominatethe.world/blog",
+    siteName: "Neural Command",
     images: [
       {
-        url: "https://dominatethe.world/api/og?title=Neural%20Command%20Blog",
+        url: "https://dominatethe.world/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Neural Command Blog",
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
 }
 
 export default function BlogPage() {
+  // Blog post data
+  const blogPosts = [
+    {
+      id: 1,
+      title: "Predictive Analytics in Supply Chain Management",
+      slug: "predictive-analytics-supply-chain-management",
+      excerpt:
+        "How AI-driven predictive analytics is revolutionizing supply chain efficiency and reducing operational costs.",
+      date: "April 15, 2023",
+      category: "AI Applications",
+    },
+    {
+      id: 2,
+      title: "AI Security Protocols in Financial Services: A Case Study",
+      slug: "ai-security-protocols-financial-services-case-study",
+      excerpt:
+        "An in-depth look at how financial institutions are implementing AI-enhanced security measures to protect sensitive data.",
+      date: "May 22, 2023",
+      category: "Security",
+    },
+    {
+      id: 3,
+      title: "Neural Networks in Healthcare Diagnostics: The Future is Now",
+      slug: "neural-networks-healthcare-diagnostics-future",
+      excerpt: "Exploring how neural networks are transforming medical diagnostics and improving patient outcomes.",
+      date: "June 10, 2023",
+      category: "Healthcare",
+    },
+    {
+      id: 4,
+      title: "Agentic Search: Revolutionizing Business Efficiency",
+      slug: "agentic-search-revolutionizing-business-efficiency",
+      excerpt: "Discover how agentic search technology is transforming how businesses find and utilize information.",
+      date: "July 5, 2023",
+      category: "Agentic AI",
+    },
+    {
+      id: 5,
+      title: "Indiana AI Innovation Fund for Local Businesses",
+      slug: "indiana-ai-innovation-fund-local-businesses",
+      excerpt: "Learn about the new AI innovation fund helping Indiana businesses implement cutting-edge AI solutions.",
+      date: "August 12, 2023",
+      category: "Regional News",
+    },
+    {
+      id: 6,
+      title: "South Bend Manufacturers Gain Competitive Advantage with AI",
+      slug: "south-bend-manufacturers-ai-competitive-advantage",
+      excerpt: "How South Bend manufacturing companies are leveraging AI to stay ahead in a competitive market.",
+      date: "September 3, 2023",
+      category: "Manufacturing",
+    },
+    {
+      id: 7,
+      title: "Indiana's AI Workforce Development Strategy",
+      slug: "indiana-ai-workforce-development-strategy",
+      excerpt: "An overview of Indiana's comprehensive strategy to develop an AI-ready workforce for the future.",
+      date: "October 18, 2023",
+      category: "Education",
+    },
+    {
+      id: 8,
+      title: "Implementing AI into Health Systems",
+      slug: "implementing-ai-into-health-systems",
+      excerpt: "A comprehensive guide to integrating AI solutions into existing healthcare infrastructure.",
+      date: "November 7, 2023",
+      category: "Healthcare",
+    },
+    {
+      id: 9,
+      title: "AI-Powered Patient Intake and EHR Integration",
+      slug: "ai-patient-intake-ehr-integration",
+      excerpt:
+        "How AI is streamlining patient intake processes and seamlessly integrating with electronic health records.",
+      date: "December 15, 2023",
+      category: "Healthcare",
+    },
+    {
+      id: 10,
+      title: "Enhancing Patient Experience with AI Onboarding",
+      slug: "ai-patient-experience-onboarding",
+      excerpt: "Strategies for using AI to improve patient onboarding and overall healthcare experience.",
+      date: "January 22, 2024",
+      category: "Healthcare",
+    },
+    {
+      id: 11,
+      title: "Exoticz AI-Enhanced Shopping Platform",
+      slug: "exoticz-ai-enhanced-shopping-platform",
+      excerpt: "Technical analysis of the sophisticated AI-enhanced shopping experience implemented by Exoticz.",
+      date: "March 30, 2024",
+      category: "E-commerce",
+    },
+  ]
+
   return (
-    <div className="min-h-screen flex flex-col pt-16">
-      <div className="relative overflow-hidden">
-        {/* Neural Network Background Animation */}
-        <div className="absolute inset-0 opacity-30">
-          <NetworkAnimation />
+    <div className="min-h-screen bg-gradient-to-b from-[#050813] to-[#0B1026]">
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 px-4 md:px-6">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400">
+              Neural Command Blog
+            </span>
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Insights, research, and perspectives on artificial intelligence, neural networks, and the future of
+            technology.
+          </p>
         </div>
+      </section>
 
-        <div className="container mx-auto px-4 py-12 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">INSIGHTS & USE CASES</h1>
-
-            <p className="text-xl text-neutral-300 mb-12">
-              Explore our latest insights, use cases, and innovations in artificial intelligence and neural networks.
-            </p>
-
-            <div className="grid gap-8 mb-16">
-              {/* New Healthcare AI Blog Posts */}
-              <div className="card-gradient border border-neutral-800 p-6 rounded-lg shadow-lg hover:border-blue-700 transition-colors bg-neutral-900/50">
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="md:w-1/3 h-48 card-gradient border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg overflow-hidden relative">
-                    <div className="absolute inset-0">
-                      <NetworkAnimation dense={true} />
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
-                        <div className="w-8 h-8 rounded-full bg-purple-500/30"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:w-2/3">
-                    <div className="text-sm text-blue-400/80 mb-2">March 27, 2025</div>
-                    <h2 className="text-2xl font-bold mb-3 text-white">
-                      How Health Systems Are Using AI to Automate Patient Intake Without Disrupting EHRs
-                    </h2>
-                    <p className="text-neutral-300 mb-4">
-                      Discover how health systems use intelligent onboarding to automate intake and reduce admin
-                      workload — without replacing your EHR.
-                    </p>
-                    <Link
-                      href="/blog/ai-patient-intake-ehr-integration"
-                      className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-                    >
-                      READ MORE <ChevronRight className="ml-1 w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-gradient border border-neutral-800 p-6 rounded-lg shadow-lg hover:border-blue-700 transition-colors bg-neutral-900/50">
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="md:w-1/3 h-48 card-gradient border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg overflow-hidden relative">
-                    <div className="absolute inset-0">
-                      <NetworkAnimation dense={false} />
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
-                        <div className="w-8 h-8 rounded-full bg-purple-500/30"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:w-2/3">
-                    <div className="text-sm text-blue-400/80 mb-2">March 27, 2025</div>
-                    <h2 className="text-2xl font-bold mb-3 text-white">
-                      Redesigning the Digital Front Door: AI-Powered Patient Onboarding That Works
-                    </h2>
-                    <p className="text-neutral-300 mb-4">
-                      Improve your digital front door with AI-powered patient onboarding. Reduce no-shows, automate
-                      engagement, and personalize care.
-                    </p>
-                    <Link
-                      href="/blog/ai-patient-experience-onboarding"
-                      className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-                    >
-                      READ MORE <ChevronRight className="ml-1 w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Existing Healthcare AI Blog Post */}
-              <div className="card-gradient border border-neutral-800 p-6 rounded-lg shadow-lg hover:border-blue-700 transition-colors bg-neutral-900/50">
-                <div className="flex flex-col md:flex-row gap-6">
-                  <div className="md:w-1/3 h-48 card-gradient border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg overflow-hidden relative">
-                    <div className="absolute inset-0">
-                      <NetworkAnimation dense={true} />
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
-                        <div className="w-8 h-8 rounded-full bg-purple-500/30"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:w-2/3">
-                    <div className="text-sm text-blue-400/80 mb-2">March 31, 2024</div>
-                    <h2 className="text-2xl font-bold mb-3 text-white">
-                      Implementing AI Into Health Systems: How Artificial Intelligence Is Transforming Modern Healthcare
-                    </h2>
-                    <p className="text-neutral-300 mb-4">
-                      Discover how AI is transforming modern health systems — from intelligent patient onboarding to
-                      predictive analytics. Learn how to implement AI in healthcare today.
-                    </p>
-                    <Link
-                      href="/blog/implementing-ai-into-health-systems"
-                      className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-                    >
-                      READ MORE <ChevronRight className="ml-1 w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {blogPosts.map((post, index) => (
-                <div
-                  key={index}
-                  className="card-gradient border border-neutral-800 p-6 rounded-lg shadow-lg hover:border-blue-700 transition-colors bg-neutral-900/50"
-                >
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-1/3 h-48 card-gradient border border-neutral-200 dark:border-neutral-800 rounded-lg shadow-lg overflow-hidden relative">
-                      <div className="absolute inset-0">
-                        <NetworkAnimation dense={index % 2 === 0} />
-                      </div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center">
-                          <div className="w-8 h-8 rounded-full bg-purple-500/30"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="md:w-2/3">
-                      <div className="text-sm text-blue-400/80 mb-2">{post.date}</div>
-                      <h2 className="text-2xl font-bold mb-3 text-white">{post.title}</h2>
-                      <p className="text-neutral-300 mb-4">{post.excerpt}</p>
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+      {/* Blog Posts Grid */}
+      <section className="py-12 px-4 md:px-6">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post) => (
+              <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                <div className="bg-[#0A0F1F] border border-indigo-900/30 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1">
+                  <div className="h-48 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 text-indigo-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
                       >
-                        READ MORE <ChevronRight className="ml-1 w-4 h-4" />
-                      </Link>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                        />
+                      </svg>
                     </div>
                   </div>
+                  <div className="p-6">
+                    <div className="text-sm text-indigo-400 mb-2">
+                      {post.category} • {post.date}
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-400">{post.excerpt}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="card-gradient border border-neutral-800 p-8 rounded-lg shadow-lg bg-neutral-900/50">
-              <h2 className="text-2xl font-bold mb-4 text-white">SUBSCRIBE TO OUR NEWSLETTER</h2>
-              <p className="text-neutral-300 mb-6">
-                Stay updated with the latest insights and innovations in neural network technology and AI applications.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-6 py-3 bg-gradient-primary text-white font-medium rounded-md hover:opacity-90 transition-all shadow-md shadow-blue-500/10"
-              >
-                SUBSCRIBE NOW <ChevronRight className="ml-2 w-4 h-4" />
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-16 px-4 md:px-6">
+        <div className="container mx-auto">
+          <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-2xl p-8 md:p-12">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-white mb-6">Stay Updated with Our Newsletter</h2>
+              <p className="text-gray-300 mb-8">
+                Subscribe to receive the latest insights on AI, neural networks, and technological advancements directly
+                to your inbox.
+              </p>
+              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-grow px-4 py-3 rounded-lg bg-[#0A0F1F] border border-indigo-900/50 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
-
-const blogPosts = [
-  {
-    title: "How Predictive Analytics is Revolutionizing Supply Chain Management",
-    slug: "predictive-analytics-supply-chain-management",
-    date: "March 10, 2024",
-    excerpt:
-      "Discover how our neural network-powered predictive analytics solutions are helping businesses reduce costs and improve efficiency in their supply chain operations.",
-    category: "Use Case",
-  },
-  {
-    title: "Implementing AI Security Protocols: A Case Study in Financial Services",
-    slug: "ai-security-protocols-financial-services-case-study",
-    date: "February 28, 2024",
-    excerpt:
-      "Learn how a leading financial institution leveraged our neural security systems to detect and prevent sophisticated fraud attempts in real-time.",
-    category: "Case Study",
-  },
-  {
-    title: "The Future of Neural Networks in Healthcare Diagnostics",
-    slug: "neural-networks-healthcare-diagnostics-future",
-    date: "February 15, 2024",
-    excerpt:
-      "Explore how advanced neural architectures are transforming medical diagnostics, improving accuracy, and enabling early detection of conditions.",
-    category: "Insight",
-  },
-  {
-    title: "Automating Quality Control in Manufacturing with Neural Networks",
-    slug: "automating-quality-control-manufacturing-neural-networks",
-    date: "January 30, 2024",
-    excerpt:
-      "See how our automation systems are helping manufacturers reduce defects, improve product quality, and optimize production processes.",
-    category: "Use Case",
-  },
-  {
-    title: "Building an Effective AI Strategy: Key Considerations for Business Leaders",
-    slug: "effective-ai-strategy-business-leaders-guide",
-    date: "January 15, 2024",
-    excerpt:
-      "Our AI consulting experts share essential considerations for business leaders looking to develop and implement a successful AI strategy.",
-    category: "Guide",
-  },
-]
-
