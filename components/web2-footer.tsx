@@ -6,13 +6,7 @@ export function Web2Footer() {
     <footer className="bg-gradient-to-b from-gray-200 to-gray-300 border-t-4 border-white">
       {/* Top section with diagonal stripes */}
       <div className="relative py-12 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, #3b82f6, #3b82f6 10px, transparent 10px, transparent 20px)",
-          }}
-        />
+        <div className="absolute inset-0 opacity-10 bg-slate-200" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

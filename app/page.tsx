@@ -10,7 +10,7 @@ export default function Home() {
 
       <main className="min-h-screen bg-gray-100">
         {/* Hero Section */}
-        <section className="pt-16 bg-blue-600 text-white border-b-4 border-white">
+        <section className="pt-16 bg-slate-200 text-white border-b-4 border-white">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-16">
               <div className="w-full md:w-1/2 text-center md:text-left">
@@ -21,17 +21,17 @@ export default function Home() {
                       NEW!
                     </div>
                   </div>
-                  <h1 className="text-4xl md:text-5xl font-black text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] mb-2">
+                  <h1 className="text-4xl md:text-5xl font-black text-blue-900 drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)] mb-2">
                     Neural Command
                   </h1>
                   <div className="h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
                 </div>
 
-                <h2 className="text-xl md:text-2xl text-blue-100 mb-6 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+                <h2 className="text-xl md:text-2xl text-blue-800 mb-6 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
                   Cutting-Edge AI Solutions for Your Business
                 </h2>
 
-                <p className="text-white mb-8 max-w-lg">
+                <p className="text-blue-900 mb-8 max-w-lg">
                   Leverage the power of artificial intelligence to transform your business operations, enhance customer
                   experiences, and drive innovation.
                 </p>
@@ -200,13 +200,7 @@ export default function Home() {
         <section className="py-16 relative overflow-hidden">
           {/* Background with diagonal stripes */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-blue-100"></div>
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg, #4299e1, #4299e1 10px, transparent 10px, transparent 20px)",
-            }}
-          />
+          <div className="absolute inset-0 opacity-10 bg-blue-300" />
           <div className="border-y-4 border-white absolute left-0 right-0 top-0 bottom-0 pointer-events-none"></div>
 
           <div className="container mx-auto px-4 relative z-10">
