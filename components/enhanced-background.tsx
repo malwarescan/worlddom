@@ -1,185 +1,256 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import React, { useRef, useEffect, useState } from "react"
+import { Canvas } from "@react-three/fiber"
+import { Points, PointMaterial } from "@react-three/drei"
+import type * as THREE from "three"
 
 interface EnhancedBackgroundProps {
-  variant?: "default" | "purple" | "blue" | "teal"
+  variant?: "purple" | "blue" | "light"
   density?: "low" | "medium" | "high"
   speed?: "slow" | "medium" | "fast"
   interactive?: boolean
+  className?: string
 }
 
-export default function EnhancedBackground({
-  variant = "default",
-  density = "medium",
-  speed = "medium",
-  interactive = true,
-}: EnhancedBackgroundProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const mouseRef = useRef({ x: 0, y: 0, active: false })
+// Generate random points on a sphere
+function generateSpherePoints(count: number) {
+  const points = new Float32Array(count * 3)
+
+  for (let i = 0; i < count; i++) {
+    const i3 = i * 3
+    const radius = 1.5
+    const theta = Math.random() * 2 * Math.PI
+    const phi = Math.acos(2 * Math.random() - 1)
+
+    points[i3] = radius * Math.sin(phi) * Math.cos(theta)
+    points[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta)
+    points[i3 + 2] = radius * Math.cos(phi)
+  }
+
+  return points
+}
+
+function Stars({ density = "medium", speed = "medium", variant = "blue" }) {
+  const ref = useRef<THREE.Points>(null)
+  const [positions] = useState(() => {
+    const count = density === "low" ? 2500 : density === "medium" ? 5000 : 7500
+    return generateSpherePoints(count)
+  })
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    // Set canvas dimensions
-    const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+    if (ref.current) {
+      ref.current.rotation.x = Math.random() * Math.PI
+      ref.current.rotation.y = Math.random() * Math.PI
     }
+  }, [])
 
-    window.addEventListener("resize", handleResize)
-    handleResize()
-
-    // Set colors based on variant
-    let primaryColor: string
-    let secondaryColor: string
-
-    switch (variant) {
-      case "purple":
-        primaryColor = "rgba(139, 92, 246, 0.2)"
-        secondaryColor = "rgba(139, 92, 246, 0.05)"
-        break
-      case "blue":
-        primaryColor = "rgba(59, 130, 246, 0.2)"
-        secondaryColor = "rgba(59, 130, 246, 0.05)"
-        break
-      case "teal":
-        primaryColor = "rgba(20, 184, 166, 0.2)"
-        secondaryColor = "rgba(20, 184, 166, 0.05)"
-        break
-      default:
-        primaryColor = "rgba(92, 108, 245, 0.2)"
-        secondaryColor = "rgba(92, 108, 245, 0.05)"
+  useFrame((state, delta) => {
+    if (ref.current) {
+      const speedFactor = speed === "slow" ? 0.1 : speed === "medium" ? 0.3 : 0.5
+      ref.current.rotation.x -= delta * speedFactor * 0.2
+      ref.current.rotation.y -= delta * speedFactor * 0.1
     }
+  })
 
-    // Set particle count based on density
-    let particleCount: number
-    switch (density) {
-      case "low":
-        particleCount = 50
-        break
-      case "high":
-        particleCount = 150
-        break
-      default:
-        particleCount = 100
-    }
+  return (
+    <group rotation={[0, 0, Math.PI / 4]}>
+      <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+        <PointMaterial
+          transparent
+          color={variant === "light" ? "#aaaaaa" : "#ffffff"}
+          size={0.005}
+          sizeAttenuation={true}
+          depthWrite={false}
+        />
+      </Points>
+    </group>
+  )
+}
 
-    // Set animation speed based on speed prop
-    let animationSpeed: number
-    switch (speed) {
-      case "slow":
-        animationSpeed = 0.2
-        break
-      case "fast":
-        animationSpeed = 0.8
-        break
-      default:
-        animationSpeed = 0.5
-    }
+// Network nodes component using SVG
+function NetworkNodes({ variant = "blue", density = "medium", speed = "medium" }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const [nodes, setNodes] = useState<Array<{ x: number; y: number; vx: number; vy: number }>>([])
 
-    // Create particles
-    const particles = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 2 + 1,
-      vx: (Math.random() - 0.5) * animationSpeed,
-      vy: (Math.random() - 0.5) * animationSpeed,
-      color: Math.random() > 0.8 ? primaryColor : secondaryColor,
-    }))
+  // Set up nodes and handle window resize
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const { width, height } = containerRef.current.getBoundingClientRect()
+        setDimensions({ width, height })
 
-    // Mouse event handlers
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!interactive) return
+        const nodeCount = density === "low" ? 5 : density === "medium" ? 10 : 15
+        const nodeSpeed = speed === "slow" ? 2 : speed === "medium" ? 5 : 10
 
-      const rect = canvas.getBoundingClientRect()
-      mouseRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-        active: true,
+        // Create nodes
+        const newNodes = Array.from({ length: nodeCount }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) / nodeSpeed,
+          vy: (Math.random() - 0.5) / nodeSpeed,
+        }))
+
+        setNodes(newNodes)
       }
     }
 
-    const handleMouseLeave = () => {
-      mouseRef.current.active = false
-    }
-
-    canvas.addEventListener("mousemove", handleMouseMove)
-    canvas.addEventListener("mouseleave", handleMouseLeave)
-
-    // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Update and draw particles
-      particles.forEach((particle, i) => {
-        // Update position
-        particle.x += particle.vx
-        particle.y += particle.vy
-
-        // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-        // Draw particle
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-        ctx.fillStyle = particle.color
-        ctx.fill()
-
-        // Interactive mouse effect
-        if (mouseRef.current.active && interactive) {
-          const dx = mouseRef.current.x - particle.x
-          const dy = mouseRef.current.y - particle.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-          const maxDistance = 150
-
-          if (distance < maxDistance) {
-            // Draw connections to mouse
-            ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
-            ctx.lineTo(mouseRef.current.x, mouseRef.current.y)
-            const opacity = (1 - distance / maxDistance) * 0.2
-            ctx.strokeStyle = primaryColor.replace("0.2", opacity.toString())
-            ctx.stroke()
-
-            // Draw connections between nearby particles
-            for (let j = i + 1; j < particles.length; j++) {
-              const otherParticle = particles[j]
-              const dx2 = particle.x - otherParticle.x
-              const dy2 = particle.y - otherParticle.y
-              const distance2 = Math.sqrt(dx2 * dx2 + dy2 * dy2)
-
-              if (distance2 < 80) {
-                ctx.beginPath()
-                ctx.moveTo(particle.x, particle.y)
-                ctx.lineTo(otherParticle.x, otherParticle.y)
-                const opacity = (1 - distance2 / 80) * 0.15
-                ctx.strokeStyle = primaryColor.replace("0.2", opacity.toString())
-                ctx.stroke()
-              }
-            }
-          }
-        }
-      })
-
-      requestAnimationFrame(animate)
-    }
-
-    animate()
+    updateDimensions()
+    window.addEventListener("resize", updateDimensions)
 
     return () => {
-      window.removeEventListener("resize", handleResize)
-      canvas.removeEventListener("mousemove", handleMouseMove)
-      canvas.removeEventListener("mouseleave", handleMouseLeave)
+      window.removeEventListener("resize", updateDimensions)
     }
-  }, [variant, density, speed, interactive])
+  }, [density, speed])
+
+  // Animation loop
+  useEffect(() => {
+    if (nodes.length === 0) return
+
+    const animateNodes = () => {
+      setNodes((prevNodes) =>
+        prevNodes.map((node) => {
+          let { x, y, vx, vy } = node
+
+          // Bounce off walls
+          if (x <= 0 || x >= dimensions.width) vx *= -1
+          if (y <= 0 || y >= dimensions.height) vy *= -1
+
+          // Update position
+          x += vx
+          y += vy
+
+          return { x, y, vx, vy }
+        }),
+      )
+
+      animationRef.current = requestAnimationFrame(animateNodes)
+    }
+
+    const animationRef = { current: requestAnimationFrame(animateNodes) }
+
+    return () => {
+      cancelAnimationFrame(animationRef.current)
+    }
+  }, [nodes.length, dimensions])
+
+  // Determine colors based on variant
+  let nodeColor = "bg-blue-500/20"
+  let nodeAccentColor = "bg-purple-500/30"
+  let connectionColor = "stroke-blue-500/20"
+  let connectionAccentColor = "stroke-purple-500/20"
+
+  if (variant === "purple") {
+    nodeColor = "bg-purple-500/20"
+    nodeAccentColor = "bg-blue-500/30"
+    connectionColor = "stroke-purple-500/20"
+    connectionAccentColor = "stroke-blue-500/20"
+  } else if (variant === "light") {
+    nodeColor = "bg-gray-400/20"
+    nodeAccentColor = "bg-gray-500/30"
+    connectionColor = "stroke-gray-400/20"
+    connectionAccentColor = "stroke-gray-500/20"
+  }
 
   return (
-    <canvas ref={canvasRef} className="fixed inset-0 w-full h-full z-[-1] pointer-events-auto" aria-hidden="true" />
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
+      <svg className="absolute inset-0 w-full h-full">
+        {nodes.map((node, i) => (
+          <React.Fragment key={i}>
+            {/* Draw connections between nodes */}
+            {nodes.map((node2, j) => {
+              if (i >= j) return null // Only draw each connection once
+
+              const dx = node.x - node2.x
+              const dy = node.y - node2.y
+              const distance = Math.sqrt(dx * dx + dy * dy)
+
+              // Only draw connections between nearby nodes
+              if (distance < dimensions.width * 0.2) {
+                const opacity = Math.max(0, 0.2 - distance / (dimensions.width * 0.5))
+                return (
+                  <line
+                    key={`${i}-${j}`}
+                    x1={node.x}
+                    y1={node.y}
+                    x2={node2.x}
+                    y2={node2.y}
+                    className={Math.random() > 0.5 ? connectionColor : connectionAccentColor}
+                    style={{ opacity: opacity * 2 }}
+                  />
+                )
+              }
+              return null
+            })}
+          </React.Fragment>
+        ))}
+
+        {/* Draw nodes */}
+        {nodes.map((node, i) => (
+          <g key={`node-${i}`} transform={`translate(${node.x}, ${node.y})`}>
+            <circle r={4} className={nodeColor} />
+            <circle r={2} className={nodeAccentColor} />
+          </g>
+        ))}
+      </svg>
+    </div>
+  )
+}
+
+// Custom hook for animation frame
+function useFrame(callback: (state: any, delta: number) => void) {
+  const frameRef = useRef<number>()
+  const previousTimeRef = useRef<number>()
+  const callbackRef = useRef<(state: any, delta: number) => void>()
+
+  useEffect(() => {
+    callbackRef.current = callback
+  }, [callback])
+
+  useEffect(() => {
+    const animate = (time: number) => {
+      if (previousTimeRef.current === undefined) {
+        previousTimeRef.current = time
+      }
+
+      const delta = (time - previousTimeRef.current) / 1000
+      previousTimeRef.current = time
+
+      if (callbackRef.current) {
+        callbackRef.current({ clock: { elapsedTime: time / 1000 } }, delta)
+      }
+
+      frameRef.current = requestAnimationFrame(animate)
+    }
+
+    frameRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current)
+      }
+    }
+  }, [])
+}
+
+export default function EnhancedBackground({
+  variant = "blue",
+  density = "medium",
+  speed = "medium",
+  interactive = false,
+  className = "",
+}: EnhancedBackgroundProps) {
+  const bgColor = variant === "light" ? "bg-white" : "bg-[#0a0e1f]"
+
+  return (
+    <div
+      className={`absolute inset-0 w-full h-full ${interactive ? "cursor-grab" : ""} ${className} ${bgColor} overflow-hidden`}
+    >
+      <Canvas className="absolute inset-0 w-full h-full">
+        <Stars variant={variant} density={density} speed={speed} />
+      </Canvas>
+      <NetworkNodes variant={variant} density={density} speed={speed} />
+    </div>
   )
 }

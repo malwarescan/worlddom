@@ -19,8 +19,8 @@ export default function GlassGlowText({ text, className = "" }: GlassGlowTextPro
 
     // Create the main text with gradient
     const textElement = document.createElement("div")
-    textElement.className =
-      "relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 whitespace-nowrap"
+    textElement.className = "relative z-10 text-transparent bg-clip-text whitespace-nowrap"
+    textElement.style.backgroundImage = "linear-gradient(to right, #4b5563, #1f2937, #4b5563)"
     textElement.textContent = text
     container.appendChild(textElement)
 
@@ -33,6 +33,8 @@ export default function GlassGlowText({ text, className = "" }: GlassGlowTextPro
     const glowElement = document.createElement("div")
     glowElement.className = "absolute inset-0 glow-effect"
     glowElement.textContent = text
+    glowElement.style.textShadow = "0 0 10px rgba(75, 85, 99, 0.5)"
+    glowElement.style.webkitTextStroke = "0.2px rgba(75, 85, 99, 0.3)"
     container.appendChild(glowElement)
   }, [text])
 

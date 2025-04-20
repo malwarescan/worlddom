@@ -187,7 +187,7 @@ export default function HealthcarePost() {
               </h3>
               <p className="text-green-400/80 mb-4">
                 Accuracy varies by application, but in some specific tasks, neural networks have demonstrated
-                performance comparable to or exceeding that of specialists. For example, some systems have shown >95%
+                performance comparable to or exceeding that of specialists. For example, some systems have shown &gt;95%
                 accuracy in identifying certain conditions in medical images, comparable to top specialists. However,
                 neural networks and human experts often make different types of errors, suggesting that combined
                 approaches may yield the best results.
@@ -267,11 +267,10 @@ export default function HealthcarePost() {
           },
           "keywords": "neural networks healthcare, medical diagnostics AI, healthcare AI, early disease detection, medical imaging AI, diagnostic accuracy"
         }
-      `,
+        `,
         }}
       />
 
-      {/* FAQPage schema */}
       <Script
         id="schema-faq"
         type="application/ld+json"
@@ -307,7 +306,7 @@ export default function HealthcarePost() {
             }
           ]
         }
-      `,
+        `,
         }}
       />
     </div>
