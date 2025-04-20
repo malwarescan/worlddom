@@ -32,7 +32,7 @@ export function Web2Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "py-2" : "py-4"
-      } bg-gradient-to-b from-blue-800 to-blue-600 border-b-4 border-white`}
+      } bg-blue-600 border-b-4 border-white`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">

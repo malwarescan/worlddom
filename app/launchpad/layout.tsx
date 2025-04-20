@@ -6,7 +6,7 @@ export const metadata = {
   description: "Explore the suite of Neural Command AI products and services",
 }
 
-export default function LaunchPadLayout({
+export default function LaunchpadLayout({
   children,
 }: {
   children: React.ReactNode

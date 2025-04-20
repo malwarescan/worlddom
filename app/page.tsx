@@ -2,34 +2,23 @@ import { Web2Header } from "@/components/web2-header"
 import { Web2Footer } from "@/components/web2-footer"
 import Link from "next/link"
 import { ArrowRight, Star, CheckCircle, Award, TrendingUp, Zap } from "lucide-react"
-import GlossyBadge from "@/components/glossy-badge"
 
 export default function Home() {
   return (
     <>
       <Web2Header />
 
-      <main className="min-h-screen bg-gray-100 web2-subtle-pattern pt-24">
+      <main className="min-h-screen bg-gray-100">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-blue-500 to-blue-700 py-16 border-b-4 border-white">
-          {/* Diagonal stripes background */}
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: "repeating-linear-gradient(45deg, #fff, #fff 10px, transparent 10px, transparent 20px)",
-            }}
-          />
-
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <section className="pt-16 bg-blue-600 text-white border-b-4 border-white">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-16">
               <div className="w-full md:w-1/2 text-center md:text-left">
                 {/* New badge */}
                 <div className="inline-block mb-4 relative">
                   <div className="absolute -top-6 -left-6 z-10">
-                    <div className="web2-starburst">
-                      <div className="bg-yellow-400 text-yellow-800 font-bold py-1 px-3 rounded-full transform rotate-12 border-2 border-white shadow-lg text-sm">
-                        NEW!
-                      </div>
+                    <div className="bg-yellow-400 text-yellow-800 font-bold py-1 px-3 rounded-full transform rotate-12 border-2 border-white shadow-lg text-sm">
+                      NEW!
                     </div>
                   </div>
                   <h1 className="text-4xl md:text-5xl font-black text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] mb-2">
@@ -48,52 +37,42 @@ export default function Home() {
                 </p>
 
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                  {/* Glossy buttons with reflections */}
-                  <div className="web2-button-container">
-                    <Link
-                      href="/services"
-                      className="web2-button bg-gradient-to-b from-green-400 to-green-600 px-6 py-3 text-lg"
-                    >
-                      Our Services
-                    </Link>
-                    <div className="web2-reflection"></div>
-                  </div>
+                  {/* Buttons */}
+                  <Link
+                    href="/services"
+                    className="bg-gradient-to-b from-green-400 to-green-600 text-white font-bold py-3 px-6 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all"
+                  >
+                    Our Services
+                  </Link>
 
-                  <div className="web2-button-container">
-                    <Link
-                      href="/contact"
-                      className="web2-button bg-gradient-to-b from-blue-400 to-blue-600 px-6 py-3 text-lg"
-                    >
-                      Contact Us
-                    </Link>
-                    <div className="web2-reflection"></div>
-                  </div>
+                  <Link
+                    href="/contact"
+                    className="bg-gradient-to-b from-blue-400 to-blue-600 text-white font-bold py-3 px-6 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 
               <div className="w-full md:w-1/2 flex justify-center">
                 <div className="relative">
-                  {/* Main image with reflection */}
-                  <div className="web2-panel p-3 rotate-3 shadow-xl">
-                    <div className="relative overflow-hidden rounded-md">
-                      <img
-                        src="/neural-genesis.png"
-                        alt="Neural Command AI Technology"
-                        className="w-full h-auto rounded-md"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-30"></div>
-                    </div>
+                  {/* Main image */}
+                  <div className="bg-white p-3 rounded-md shadow-xl rotate-3">
+                    <img
+                      src="/neural-genesis.png"
+                      alt="Neural Command AI Technology"
+                      className="w-full h-auto rounded-md"
+                    />
                   </div>
-                  <div className="web2-card-reflection"></div>
 
                   {/* Badges */}
                   <div className="absolute -top-6 -right-6 rotate-12">
-                    <div className="web2-glossy-badge bg-gradient-to-b from-red-400 to-red-600 text-white px-4 py-1 rounded-full font-bold border-2 border-white shadow-lg">
+                    <div className="bg-red-500 text-white px-4 py-1 rounded-full font-bold border-2 border-white shadow-lg">
                       HOT!
                     </div>
                   </div>
                   <div className="absolute -bottom-4 -left-4 -rotate-12">
-                    <div className="web2-glossy-badge bg-gradient-to-b from-blue-400 to-blue-600 text-white px-4 py-1 rounded-full font-bold border-2 border-white shadow-lg">
+                    <div className="bg-blue-500 text-white px-4 py-1 rounded-full font-bold border-2 border-white shadow-lg">
                       AI Powered
                     </div>
                   </div>
@@ -104,7 +83,7 @@ export default function Home() {
         </section>
 
         {/* Featured Banner */}
-        <section className="web2-featured-banner py-4 border-b-4 border-white">
+        <section className="bg-blue-700 py-4 border-b-4 border-white">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap items-center justify-center md:justify-between text-white">
               <div className="flex items-center gap-2">
@@ -142,92 +121,77 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature Box 1 */}
-            <div className="web2-card-container">
-              <div className="web2-card bg-white rounded-lg overflow-hidden border border-gray-200">
-                <div className="bg-gradient-to-b from-blue-400 to-blue-600 p-4 text-white font-bold text-xl flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                    <span className="text-2xl">🧠</span>
-                  </div>
-                  Neural Networks
+            <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md">
+              <div className="bg-gradient-to-b from-blue-400 to-blue-600 p-4 text-white font-bold text-xl flex items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                  <span className="text-2xl">🧠</span>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">
-                    Custom neural network solutions designed to solve your specific business challenges with
-                    unparalleled accuracy.
-                  </p>
-                  <div className="mt-4 flex justify-between items-center">
-                    <Link
-                      href="/services/neural-network-development"
-                      className="text-blue-600 font-bold hover:underline flex items-center gap-1"
-                    >
-                      Learn more <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <div className="web2-glossy-badge bg-gradient-to-b from-green-400 to-green-600 text-white px-2 py-1 text-xs rounded-full font-bold">
-                      Popular
-                    </div>
-                  </div>
+                Neural Networks
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">
+                  Custom neural network solutions designed to solve your specific business challenges with unparalleled
+                  accuracy.
+                </p>
+                <div className="mt-4 flex justify-between items-center">
+                  <Link
+                    href="/services/neural-network-development"
+                    className="text-blue-600 font-bold hover:underline flex items-center gap-1"
+                  >
+                    Learn more <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <div className="bg-green-500 text-white px-2 py-1 text-xs rounded-full font-bold">Popular</div>
                 </div>
               </div>
-              <div className="web2-card-reflection"></div>
             </div>
 
             {/* Feature Box 2 */}
-            <div className="web2-card-container">
-              <div className="web2-card bg-white rounded-lg overflow-hidden border border-gray-200">
-                <div className="bg-gradient-to-b from-green-400 to-green-600 p-4 text-white font-bold text-xl flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                    <span className="text-2xl">📊</span>
-                  </div>
-                  Machine Learning
+            <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md">
+              <div className="bg-gradient-to-b from-green-400 to-green-600 p-4 text-white font-bold text-xl flex items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                  <span className="text-2xl">📊</span>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">
-                    Advanced machine learning algorithms that learn from your data and improve over time for optimal
-                    results.
-                  </p>
-                  <div className="mt-4 flex justify-between items-center">
-                    <Link
-                      href="/services/machine-learning-solutions"
-                      className="text-green-600 font-bold hover:underline flex items-center gap-1"
-                    >
-                      Learn more <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <div className="web2-glossy-badge bg-gradient-to-b from-blue-400 to-blue-600 text-white px-2 py-1 text-xs rounded-full font-bold">
-                      Featured
-                    </div>
-                  </div>
+                Machine Learning
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">
+                  Advanced machine learning algorithms that learn from your data and improve over time for optimal
+                  results.
+                </p>
+                <div className="mt-4 flex justify-between items-center">
+                  <Link
+                    href="/services/machine-learning-solutions"
+                    className="text-green-600 font-bold hover:underline flex items-center gap-1"
+                  >
+                    Learn more <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <div className="bg-blue-500 text-white px-2 py-1 text-xs rounded-full font-bold">Featured</div>
                 </div>
               </div>
-              <div className="web2-card-reflection"></div>
             </div>
 
             {/* Feature Box 3 */}
-            <div className="web2-card-container">
-              <div className="web2-card bg-white rounded-lg overflow-hidden border border-gray-200">
-                <div className="bg-gradient-to-b from-orange-400 to-orange-600 p-4 text-white font-bold text-xl flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                    <span className="text-2xl">💡</span>
-                  </div>
-                  AI Consulting
+            <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md">
+              <div className="bg-gradient-to-b from-orange-400 to-orange-600 p-4 text-white font-bold text-xl flex items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                  <span className="text-2xl">💡</span>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">
-                    Expert guidance on implementing AI solutions tailored to your business needs and strategic goals.
-                  </p>
-                  <div className="mt-4 flex justify-between items-center">
-                    <Link
-                      href="/services/ai-consulting"
-                      className="text-orange-600 font-bold hover:underline flex items-center gap-1"
-                    >
-                      Learn more <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <div className="web2-glossy-badge bg-gradient-to-b from-purple-400 to-purple-600 text-white px-2 py-1 text-xs rounded-full font-bold">
-                      New
-                    </div>
-                  </div>
+                AI Consulting
+              </div>
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">
+                  Expert guidance on implementing AI solutions tailored to your business needs and strategic goals.
+                </p>
+                <div className="mt-4 flex justify-between items-center">
+                  <Link
+                    href="/services/ai-consulting"
+                    className="text-orange-600 font-bold hover:underline flex items-center gap-1"
+                  >
+                    Learn more <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <div className="bg-purple-500 text-white px-2 py-1 text-xs rounded-full font-bold">New</div>
                 </div>
               </div>
-              <div className="web2-card-reflection"></div>
             </div>
           </div>
         </section>
@@ -253,12 +217,13 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="relative">
-                <div className="web2-panel p-3 rotate-2">
+                <div className="bg-white p-3 rounded-md shadow-md rotate-2">
                   <img src="/ai-collaboration-hub.png" alt="Neural Command Team" className="w-full h-auto rounded-md" />
                 </div>
-                <div className="web2-card-reflection"></div>
                 <div className="absolute -top-6 -right-6 rotate-12">
-                  <GlossyBadge text="Expert Team" color="green" />
+                  <div className="bg-green-500 text-white px-4 py-1 rounded-full font-bold border-2 border-white shadow-lg">
+                    Expert Team
+                  </div>
                 </div>
               </div>
 
@@ -286,7 +251,7 @@ export default function Home() {
                       description: "Track record of delivering measurable business outcomes.",
                     },
                   ].map((item, index) => (
-                    <li key={index} className="web2-panel p-4 bg-white">
+                    <li key={index} className="bg-white p-4 rounded-md shadow-md">
                       <div className="flex gap-4">
                         <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center text-white">
                           {item.icon}
@@ -313,73 +278,67 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Testimonial 1 */}
-            <div className="web2-testimonial-container">
-              <div className="web2-testimonial">
-                <div className="relative mb-4">
-                  <div className="absolute -top-4 -left-4 text-6xl text-blue-200 opacity-50">"</div>
-                  <p className="relative z-10 italic text-gray-600">
-                    Neural Command transformed our customer service with their AI chatbot solution. We've seen a 40%
-                    reduction in support tickets and significantly improved customer satisfaction.
-                  </p>
-                  <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 opacity-50">"</div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="relative mb-4">
+                <div className="absolute -top-4 -left-4 text-6xl text-blue-200 opacity-50">"</div>
+                <p className="relative z-10 italic text-gray-600">
+                  Neural Command transformed our customer service with their AI chatbot solution. We've seen a 40%
+                  reduction in support tickets and significantly improved customer satisfaction.
+                </p>
+                <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 opacity-50">"</div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="bg-white p-1 rounded-full shadow-md">
+                  <img
+                    src="/confident-professional.png"
+                    alt="Sarah Johnson"
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="web2-panel p-1 bg-white rounded-full">
-                    <img
-                      src="/confident-professional.png"
-                      alt="Sarah Johnson"
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-blue-700">Sarah Johnson</div>
-                    <div className="text-gray-500">CEO, TechSolutions Inc.</div>
-                  </div>
-                  <div className="ml-auto">
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                      ))}
-                    </div>
+                <div>
+                  <div className="font-bold text-blue-700">Sarah Johnson</div>
+                  <div className="text-gray-500">CEO, TechSolutions Inc.</div>
+                </div>
+                <div className="ml-auto">
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                    ))}
                   </div>
                 </div>
               </div>
-              <div className="web2-testimonial-reflection"></div>
             </div>
 
             {/* Testimonial 2 */}
-            <div className="web2-testimonial-container">
-              <div className="web2-testimonial">
-                <div className="relative mb-4">
-                  <div className="absolute -top-4 -left-4 text-6xl text-blue-200 opacity-50">"</div>
-                  <p className="relative z-10 italic text-gray-600">
-                    The predictive analytics system developed by Neural Command has revolutionized our inventory
-                    management. We've reduced waste by 35% and improved our supply chain efficiency.
-                  </p>
-                  <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 opacity-50">"</div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="relative mb-4">
+                <div className="absolute -top-4 -left-4 text-6xl text-blue-200 opacity-50">"</div>
+                <p className="relative z-10 italic text-gray-600">
+                  The predictive analytics system developed by Neural Command has revolutionized our inventory
+                  management. We've reduced waste by 35% and improved our supply chain efficiency.
+                </p>
+                <div className="absolute -bottom-4 -right-4 text-6xl text-blue-200 opacity-50">"</div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="bg-white p-1 rounded-full shadow-md">
+                  <img
+                    src="/confident-executive.png"
+                    alt="Michael Chen"
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="web2-panel p-1 bg-white rounded-full">
-                    <img
-                      src="/confident-executive.png"
-                      alt="Michael Chen"
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-blue-700">Michael Chen</div>
-                    <div className="text-gray-500">Operations Director, Global Retail</div>
-                  </div>
-                  <div className="ml-auto">
-                    <div className="flex">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                      ))}
-                    </div>
+                <div>
+                  <div className="font-bold text-blue-700">Michael Chen</div>
+                  <div className="text-gray-500">Operations Director, Global Retail</div>
+                </div>
+                <div className="ml-auto">
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                    ))}
                   </div>
                 </div>
               </div>
-              <div className="web2-testimonial-reflection"></div>
             </div>
           </div>
         </section>
@@ -402,7 +361,7 @@ export default function Home() {
                 { number: "50+", label: "AI Experts" },
                 { number: "10+", label: "Years Experience" },
               ].map((stat, index) => (
-                <div key={index} className="web2-panel p-6 bg-white bg-opacity-10">
+                <div key={index} className="bg-white bg-opacity-10 p-6 rounded-md">
                   <div className="text-4xl font-black text-white mb-2">{stat.number}</div>
                   <div className="text-blue-100">{stat.label}</div>
                 </div>
@@ -413,7 +372,7 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="py-16 container mx-auto px-4 text-center">
-          <div className="web2-panel p-8 bg-gradient-to-b from-blue-50 to-blue-100 relative overflow-hidden">
+          <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-8 rounded-lg shadow-md relative overflow-hidden">
             {/* Ribbon */}
             <div className="absolute -right-12 top-8 bg-gradient-to-b from-red-500 to-red-700 text-white px-12 py-2 transform rotate-45 shadow-md font-bold">
               Limited Time
@@ -426,25 +385,19 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-6">
-              <div className="web2-button-container">
-                <Link
-                  href="/contact"
-                  className="web2-button bg-gradient-to-b from-green-400 to-green-600 px-8 py-3 text-lg"
-                >
-                  Get Started
-                </Link>
-                <div className="web2-reflection"></div>
-              </div>
+              <Link
+                href="/contact"
+                className="bg-gradient-to-b from-green-400 to-green-600 text-white font-bold py-3 px-8 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all text-lg"
+              >
+                Get Started
+              </Link>
 
-              <div className="web2-button-container">
-                <Link
-                  href="/services"
-                  className="web2-button bg-gradient-to-b from-blue-400 to-blue-600 px-8 py-3 text-lg"
-                >
-                  Explore Services
-                </Link>
-                <div className="web2-reflection"></div>
-              </div>
+              <Link
+                href="/services"
+                className="bg-gradient-to-b from-blue-400 to-blue-600 text-white font-bold py-3 px-8 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all text-lg"
+              >
+                Explore Services
+              </Link>
             </div>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
