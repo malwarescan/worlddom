@@ -378,10 +378,10 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="py-16 container mx-auto px-4 text-center">
-          <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-8 rounded-lg shadow-md relative overflow-hidden">
+          <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-8 rounded-lg shadow-md relative overflow-hidden border-4 border-white">
             {/* Ribbon */}
-            <div className="absolute -right-12 top-8 bg-gradient-to-b from-red-500 to-red-700 text-white px-12 py-2 transform rotate-45 shadow-md font-bold">
-              Limited Time
+            <div className="absolute -right-12 top-8">
+              <Web2Badge text="Limited Time" variant="red" size="md" className="transform rotate-45 px-12 py-2" />
             </div>
 
             <h2 className="text-3xl font-bold text-blue-700 mb-4">Ready to Transform Your Business with AI?</h2>
@@ -391,19 +391,13 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-6">
-              <Link
-                href="/contact"
-                className="bg-gradient-to-b from-green-400 to-green-600 text-white font-bold py-3 px-8 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all text-lg"
-              >
+              <Web2Button href="/contact" variant="green" size="lg">
                 Get Started
-              </Link>
+              </Web2Button>
 
-              <Link
-                href="/services"
-                className="bg-gradient-to-b from-blue-400 to-blue-600 text-white font-bold py-3 px-8 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all text-lg"
-              >
+              <Web2Button href="/services" variant="blue" size="lg">
                 Explore Services
-              </Link>
+              </Web2Button>
             </div>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">

@@ -4,12 +4,13 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 import { Web2Button } from "@/components/web2-button"
 import { Web2Badge } from "@/components/web2-badge"
+import { GlossyIcon } from "@/components/glossy-icon"
 
 // Product data structure
 const launchDeck = [
   {
     name: "Viontra",
-    icon: "/icons/commandline.svg",
+    icon: "/icons/commandline.png",
     tagline: "The Operating System for Your Digital Presence",
     description: "Control your website, SEO, Google Business, ads, and CRM from one intelligent interface.",
     status: "beta",
@@ -22,7 +23,7 @@ const launchDeck = [
   },
   {
     name: "RankHack",
-    icon: "/icons/rankhack.svg",
+    icon: "/icons/rankhack.png",
     tagline: "AI-Powered SEO Optimization",
     description: "Continuously improves your search rankings through intelligent content and technical adjustments.",
     status: "development",
@@ -35,7 +36,7 @@ const launchDeck = [
   },
   {
     name: "Childish",
-    icon: "/icons/childish.svg",
+    icon: "/icons/childish.png",
     tagline: "Simplified AI for Everyone",
     description: "Making complex AI tools accessible to non-technical users through intuitive interfaces.",
     status: "alpha",
@@ -48,7 +49,7 @@ const launchDeck = [
   },
   {
     name: "SoulFilter",
-    icon: "/icons/soulfilter.svg",
+    icon: "/icons/soulfilter.png",
     tagline: "AI-Enhanced Content Moderation",
     description:
       "Automatically filter and moderate content across all your digital channels with contextual awareness.",
@@ -62,7 +63,7 @@ const launchDeck = [
   },
   {
     name: "DoorMat",
-    icon: "/icons/doormat.svg",
+    icon: "/icons/doormat.png",
     tagline: "Intelligent Customer Onboarding",
     description: "Streamline customer onboarding with AI-guided workflows and personalized experiences.",
     status: "planning",
@@ -89,102 +90,6 @@ const ProgressBar = ({ percent, color }: { percent: number; color: string }) => 
         initial={{ width: 0 }}
         animate={{ width: `${percent}%` }}
         transition={{ duration: 1, delay: 0.5 }}
-      />
-    </div>
-  )
-}
-
-// Glossy Icon Component
-const GlossyIcon = ({
-  icon,
-  name,
-  color,
-  size = "lg",
-  animate = false,
-  delay = 0,
-}: {
-  icon: string
-  name: string
-  color: string
-  size?: "sm" | "md" | "lg"
-  animate?: boolean
-  delay?: number
-}) => {
-  const sizeClasses = {
-    sm: "w-10 h-10",
-    md: "w-12 h-12",
-    lg: "w-16 h-16",
-  }
-
-  const iconSizes = {
-    sm: "w-6 h-6",
-    md: "w-7 h-7",
-    lg: "w-9 h-9",
-  }
-
-  return (
-    <div
-      className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center bg-gradient-to-br ${color} shadow-lg relative overflow-hidden border-2 border-white`}
-    >
-      {/* Base white background for better contrast */}
-      <div className="absolute inset-0 bg-white opacity-10"></div>
-
-      {/* Glossy highlight effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-40"></div>
-      <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white to-transparent opacity-30 rounded-t-2xl"></div>
-
-      {/* Bottom shadow for depth */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-black opacity-20"></div>
-
-      {/* Circular glow behind icon */}
-      <div className="absolute inset-0 m-auto w-3/4 h-3/4 rounded-full bg-white opacity-20 blur-sm"></div>
-
-      {/* Icon with animation */}
-      {animate ? (
-        <motion.div
-          className="relative z-10"
-          initial={{ scale: 0.8, opacity: 0.8 }}
-          animate={{
-            scale: [0.8, 1.1, 1],
-            opacity: [0.8, 1, 0.9, 1],
-            rotate: [0, 5, 0, -3, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            repeatType: "reverse",
-            repeatDelay: 2 + delay,
-            ease: "easeInOut",
-          }}
-        >
-          <img
-            src={icon || "/placeholder.svg"}
-            alt={name}
-            className={`${iconSizes[size]} drop-shadow-lg filter brightness-[1.15] text-white`}
-          />
-        </motion.div>
-      ) : (
-        <div className="relative z-10">
-          <img
-            src={icon || "/placeholder.svg"}
-            alt={name}
-            className={`${iconSizes[size]} drop-shadow-lg filter brightness-[1.15] text-white`}
-          />
-        </div>
-      )}
-
-      {/* Subtle pulsing border */}
-      <motion.div
-        className="absolute inset-0 rounded-2xl border-2 border-white opacity-30"
-        animate={{
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Number.POSITIVE_INFINITY,
-          repeatType: "reverse",
-          repeatDelay: 1,
-        }}
       />
     </div>
   )

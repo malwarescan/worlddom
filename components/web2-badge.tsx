@@ -29,7 +29,7 @@ export function Web2Badge({ text, variant = "blue", size = "md", className }: We
   const baseStyles = `
     font-bold rounded-full border-2 border-white shadow-md 
     inline-flex items-center justify-center
-    relative overflow-hidden
+    relative overflow-hidden transform
   `
 
   // Combined styles
