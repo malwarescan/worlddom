@@ -1,5 +1,7 @@
 import { Web2Header } from "@/components/web2-header"
 import { Web2Footer } from "@/components/web2-footer"
+import { Web2Button } from "@/components/web2-button"
+import { Web2Badge } from "@/components/web2-badge"
 import Link from "next/link"
 import { ArrowRight, Star, CheckCircle, Award, TrendingUp, Zap } from "lucide-react"
 
@@ -17,9 +19,7 @@ export default function Home() {
                 {/* New badge */}
                 <div className="inline-block mb-4 relative">
                   <div className="absolute -top-6 -left-6 z-10">
-                    <div className="bg-yellow-400 text-yellow-800 font-bold py-1 px-3 rounded-full transform rotate-12 border-2 border-white shadow-lg text-sm">
-                      NEW!
-                    </div>
+                    <Web2Badge text="NEW!" variant="yellow" size="sm" className="transform rotate-12" />
                   </div>
                   <h1 className="text-4xl md:text-5xl font-black text-blue-900 drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)] mb-2">
                     Neural Command
@@ -38,33 +38,24 @@ export default function Home() {
 
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   {/* Buttons */}
-                  <Link
-                    href="/launchpad"
-                    className="bg-gradient-to-b from-purple-400 to-purple-600 text-white font-bold py-3 px-6 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all"
-                  >
+                  <Web2Button href="/launchpad" variant="purple" size="lg">
                     View Launch Deck <ArrowRight className="inline-block ml-2 h-5 w-5" />
-                  </Link>
+                  </Web2Button>
 
-                  <Link
-                    href="/services"
-                    className="bg-gradient-to-b from-green-400 to-green-600 text-white font-bold py-3 px-6 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all"
-                  >
+                  <Web2Button href="/services" variant="green" size="lg">
                     Our Services
-                  </Link>
+                  </Web2Button>
 
-                  <Link
-                    href="/contact"
-                    className="bg-gradient-to-b from-blue-400 to-blue-600 text-white font-bold py-3 px-6 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all"
-                  >
+                  <Web2Button href="/contact" variant="blue" size="lg">
                     Contact Us
-                  </Link>
+                  </Web2Button>
                 </div>
               </div>
 
               <div className="w-full md:w-1/2 flex justify-center">
                 <div className="relative">
                   {/* Main image */}
-                  <div className="bg-white p-3 rounded-md shadow-xl rotate-3">
+                  <div className="bg-white p-3 rounded-md shadow-xl rotate-3 border-2 border-white">
                     <img
                       src="/neural-genesis.png"
                       alt="Neural Command AI Technology"
@@ -74,14 +65,10 @@ export default function Home() {
 
                   {/* Badges */}
                   <div className="absolute -top-6 -right-6 rotate-12">
-                    <div className="bg-red-500 text-white px-4 py-1 rounded-full font-bold border-2 border-white shadow-lg">
-                      HOT!
-                    </div>
+                    <Web2Badge text="HOT!" variant="red" size="md" />
                   </div>
                   <div className="absolute -bottom-4 -left-4 -rotate-12">
-                    <div className="bg-blue-500 text-white px-4 py-1 rounded-full font-bold border-2 border-white shadow-lg">
-                      AI Powered
-                    </div>
+                    <Web2Badge text="AI Powered" variant="blue" size="md" />
                   </div>
                 </div>
               </div>
@@ -116,8 +103,8 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-blue-700 mb-2">Our AI Solutions</h2>
               <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
               {/* Ribbon */}
-              <div className="absolute -right-12 top-0 bg-gradient-to-b from-red-500 to-red-700 text-white px-4 py-1 transform rotate-45 shadow-md font-bold text-sm">
-                Premium
+              <div className="absolute -right-12 top-0">
+                <Web2Badge text="Premium" variant="red" size="sm" className="transform rotate-45" />
               </div>
             </div>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
@@ -129,11 +116,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature Box 1 */}
             <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md">
-              <div className="bg-gradient-to-b from-blue-400 to-blue-600 p-4 text-white font-bold text-xl flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                  <span className="text-2xl">🧠</span>
+              <div className="bg-gradient-to-b from-blue-400 to-blue-600 p-4 text-white font-bold text-xl flex items-center gap-2 relative overflow-hidden">
+                {/* Web 2.0 glossy overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-30"></div>
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white to-transparent opacity-20"></div>
+
+                <div className="relative z-10 flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center border-2 border-white">
+                    <span className="text-2xl">🧠</span>
+                  </div>
+                  Neural Networks
                 </div>
-                Neural Networks
               </div>
               <div className="p-6">
                 <p className="text-gray-600 mb-4">
@@ -147,18 +140,24 @@ export default function Home() {
                   >
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <div className="bg-green-500 text-white px-2 py-1 text-xs rounded-full font-bold">Popular</div>
+                  <Web2Badge text="Popular" variant="green" size="sm" />
                 </div>
               </div>
             </div>
 
             {/* Feature Box 2 */}
             <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md">
-              <div className="bg-gradient-to-b from-green-400 to-green-600 p-4 text-white font-bold text-xl flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                  <span className="text-2xl">📊</span>
+              <div className="bg-gradient-to-b from-green-400 to-green-600 p-4 text-white font-bold text-xl flex items-center gap-2 relative overflow-hidden">
+                {/* Web 2.0 glossy overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-30"></div>
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white to-transparent opacity-20"></div>
+
+                <div className="relative z-10 flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center border-2 border-white">
+                    <span className="text-2xl">📊</span>
+                  </div>
+                  Machine Learning
                 </div>
-                Machine Learning
               </div>
               <div className="p-6">
                 <p className="text-gray-600 mb-4">
@@ -172,18 +171,24 @@ export default function Home() {
                   >
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <div className="bg-blue-500 text-white px-2 py-1 text-xs rounded-full font-bold">Featured</div>
+                  <Web2Badge text="Featured" variant="blue" size="sm" />
                 </div>
               </div>
             </div>
 
             {/* Feature Box 3 */}
             <div className="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md">
-              <div className="bg-gradient-to-b from-orange-400 to-orange-600 p-4 text-white font-bold text-xl flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                  <span className="text-2xl">💡</span>
+              <div className="bg-gradient-to-b from-orange-400 to-orange-600 p-4 text-white font-bold text-xl flex items-center gap-2 relative overflow-hidden">
+                {/* Web 2.0 glossy overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-30"></div>
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white to-transparent opacity-20"></div>
+
+                <div className="relative z-10 flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center border-2 border-white">
+                    <span className="text-2xl">💡</span>
+                  </div>
+                  AI Consulting
                 </div>
-                AI Consulting
               </div>
               <div className="p-6">
                 <p className="text-gray-600 mb-4">
@@ -196,7 +201,7 @@ export default function Home() {
                   >
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <div className="bg-purple-500 text-white px-2 py-1 text-xs rounded-full font-bold">New</div>
+                  <Web2Badge text="New" variant="purple" size="sm" />
                 </div>
               </div>
             </div>

@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import Link from "next/link"
+import { Web2Button } from "@/components/web2-button"
+import { Web2Badge } from "@/components/web2-badge"
 
 // Product data structure
 const launchDeck = [
@@ -17,6 +18,7 @@ const launchDeck = [
     linkText: "Explore Viontra",
     delay: 0.1,
     color: "from-yellow-400 to-amber-500",
+    badgeColor: "yellow",
   },
   {
     name: "RankHack",
@@ -29,6 +31,7 @@ const launchDeck = [
     linkText: "Join Waitlist",
     delay: 0.2,
     color: "from-orange-400 to-red-500",
+    badgeColor: "orange",
   },
   {
     name: "Childish",
@@ -41,6 +44,7 @@ const launchDeck = [
     linkText: "Request Demo",
     delay: 0.3,
     color: "from-cyan-400 to-blue-500",
+    badgeColor: "blue",
   },
   {
     name: "SoulFilter",
@@ -54,6 +58,7 @@ const launchDeck = [
     linkText: "Learn More",
     delay: 0.4,
     color: "from-purple-400 to-violet-500",
+    badgeColor: "purple",
   },
   {
     name: "DoorMat",
@@ -66,44 +71,120 @@ const launchDeck = [
     linkText: "Subscribe for Updates",
     delay: 0.5,
     color: "from-green-400 to-emerald-500",
+    badgeColor: "green",
   },
 ]
 
 // Status badge component
-const StatusBadge = ({ status }: { status: string }) => {
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "beta":
-        return "bg-amber-100 text-amber-800 border-amber-300"
-      case "alpha":
-        return "bg-blue-100 text-blue-800 border-blue-300"
-      case "development":
-        return "bg-orange-100 text-orange-800 border-orange-300"
-      case "concept":
-        return "bg-purple-100 text-purple-800 border-purple-300"
-      case "planning":
-        return "bg-green-100 text-green-800 border-green-300"
-      default:
-        return "bg-gray-100 text-gray-800 border-gray-300"
-    }
-  }
-
-  return (
-    <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full border ${getStatusColor(status)} uppercase`}>
-      {status}
-    </span>
-  )
+const StatusBadge = ({ status, color }: { status: string; color: string }) => {
+  return <Web2Badge text={status.toUpperCase()} variant={color as any} size="sm" />
 }
 
 // Progress bar component
 const ProgressBar = ({ percent, color }: { percent: number; color: string }) => {
   return (
-    <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 overflow-hidden">
+    <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 overflow-hidden border border-white shadow-inner">
       <motion.div
         className={`h-2.5 rounded-full bg-gradient-to-r ${color}`}
         initial={{ width: 0 }}
         animate={{ width: `${percent}%` }}
         transition={{ duration: 1, delay: 0.5 }}
+      />
+    </div>
+  )
+}
+
+// Glossy Icon Component
+const GlossyIcon = ({
+  icon,
+  name,
+  color,
+  size = "lg",
+  animate = false,
+  delay = 0,
+}: {
+  icon: string
+  name: string
+  color: string
+  size?: "sm" | "md" | "lg"
+  animate?: boolean
+  delay?: number
+}) => {
+  const sizeClasses = {
+    sm: "w-10 h-10",
+    md: "w-12 h-12",
+    lg: "w-16 h-16",
+  }
+
+  const iconSizes = {
+    sm: "w-6 h-6",
+    md: "w-7 h-7",
+    lg: "w-9 h-9",
+  }
+
+  return (
+    <div
+      className={`${sizeClasses[size]} rounded-2xl flex items-center justify-center bg-gradient-to-br ${color} shadow-lg relative overflow-hidden border-2 border-white`}
+    >
+      {/* Base white background for better contrast */}
+      <div className="absolute inset-0 bg-white opacity-10"></div>
+
+      {/* Glossy highlight effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-40"></div>
+      <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white to-transparent opacity-30 rounded-t-2xl"></div>
+
+      {/* Bottom shadow for depth */}
+      <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-black opacity-20"></div>
+
+      {/* Circular glow behind icon */}
+      <div className="absolute inset-0 m-auto w-3/4 h-3/4 rounded-full bg-white opacity-20 blur-sm"></div>
+
+      {/* Icon with animation */}
+      {animate ? (
+        <motion.div
+          className="relative z-10"
+          initial={{ scale: 0.8, opacity: 0.8 }}
+          animate={{
+            scale: [0.8, 1.1, 1],
+            opacity: [0.8, 1, 0.9, 1],
+            rotate: [0, 5, 0, -3, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: "reverse",
+            repeatDelay: 2 + delay,
+            ease: "easeInOut",
+          }}
+        >
+          <img
+            src={icon || "/placeholder.svg"}
+            alt={name}
+            className={`${iconSizes[size]} drop-shadow-lg filter brightness-[1.15] text-white`}
+          />
+        </motion.div>
+      ) : (
+        <div className="relative z-10">
+          <img
+            src={icon || "/placeholder.svg"}
+            alt={name}
+            className={`${iconSizes[size]} drop-shadow-lg filter brightness-[1.15] text-white`}
+          />
+        </div>
+      )}
+
+      {/* Subtle pulsing border */}
+      <motion.div
+        className="absolute inset-0 rounded-2xl border-2 border-white opacity-30"
+        animate={{
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Number.POSITIVE_INFINITY,
+          repeatType: "reverse",
+          repeatDelay: 1,
+        }}
       />
     </div>
   )
@@ -123,9 +204,7 @@ export default function LaunchDeckPage() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm font-medium rounded-full mb-4">
-              Neural Command Phase 1
-            </span>
+            <Web2Badge text="Neural Command Phase 1" variant="purple" size="md" className="mb-4" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">AI-Native Product Suite</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Explore our comprehensive portfolio of AI solutions designed to transform your business operations and
@@ -158,11 +237,14 @@ export default function LaunchDeckPage() {
                   transition: { duration: 0.2 },
                 }}
               >
-                <div
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br ${project.color} shadow-lg`}
-                >
-                  <img src={project.icon || "/placeholder.svg"} alt={project.name} className="w-8 h-8" />
-                </div>
+                <GlossyIcon
+                  icon={project.icon}
+                  name={project.name}
+                  color={project.color}
+                  size="lg"
+                  animate={true}
+                  delay={index * 0.5}
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -192,14 +274,24 @@ export default function LaunchDeckPage() {
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center">
-                      <div
-                        className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${project.color} mr-4 shadow`}
-                      >
-                        <img src={project.icon || "/placeholder.svg"} alt={project.name} className="w-6 h-6" />
+                      <div className="mr-4">
+                        <motion.div
+                          animate={
+                            hoveredCard === index
+                              ? {
+                                  scale: [1, 1.1, 1],
+                                  rotate: [0, 10, 0],
+                                  transition: { duration: 0.5 },
+                                }
+                              : {}
+                          }
+                        >
+                          <GlossyIcon icon={project.icon} name={project.name} color={project.color} size="md" />
+                        </motion.div>
                       </div>
                       <h3 className="text-xl font-bold text-gray-900">{project.name}</h3>
                     </div>
-                    <StatusBadge status={project.status} />
+                    <StatusBadge status={project.status} color={project.badgeColor} />
                   </div>
 
                   <p className="text-lg font-medium text-gray-700 mb-2">{project.tagline}</p>
@@ -212,9 +304,10 @@ export default function LaunchDeckPage() {
                     </div>
                     <ProgressBar percent={project.statusPercent} color={project.color} />
 
-                    <Link
+                    <Web2Button
                       href={project.link}
-                      className={`inline-flex items-center justify-center w-full px-4 py-2 mt-2 text-sm font-medium text-white rounded-lg bg-gradient-to-r ${project.color} hover:opacity-90 transition-opacity`}
+                      variant={project.badgeColor as any}
+                      className="w-full flex items-center justify-center"
                     >
                       {project.linkText}
                       <svg
@@ -231,7 +324,7 @@ export default function LaunchDeckPage() {
                           d="M14 5l7 7m0 0l-7 7m7-7H3"
                         ></path>
                       </svg>
-                    </Link>
+                    </Web2Button>
                   </div>
                 </div>
               </motion.div>
@@ -243,7 +336,7 @@ export default function LaunchDeckPage() {
       {/* Call to Action */}
       <section className="py-16 px-4">
         <motion.div
-          className="max-w-4xl mx-auto bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl shadow-2xl overflow-hidden"
+          className="max-w-4xl mx-auto bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl shadow-2xl overflow-hidden border-4 border-white"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
@@ -253,6 +346,10 @@ export default function LaunchDeckPage() {
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
               <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-white opacity-10"></div>
               <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full bg-white opacity-10"></div>
+
+              {/* Web 2.0 glossy overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-20"></div>
+              <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white to-transparent opacity-20"></div>
             </div>
 
             <div className="relative z-10 text-center">
@@ -262,10 +359,7 @@ export default function LaunchDeckPage() {
                 today's digital landscape.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-indigo-600 bg-white rounded-lg hover:bg-indigo-50 transition-colors"
-                >
+                <Web2Button href="/contact" variant="blue" size="lg">
                   Schedule a Demo
                   <svg
                     className="w-5 h-5 ml-2"
@@ -276,13 +370,10 @@ export default function LaunchDeckPage() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                   </svg>
-                </a>
-                <a
-                  href="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-white rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors"
-                >
+                </Web2Button>
+                <Web2Button href="/about" variant="purple" size="lg">
                   Learn About Neural Command
-                </a>
+                </Web2Button>
               </div>
             </div>
           </div>
