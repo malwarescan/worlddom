@@ -39,7 +39,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   {/* Buttons */}
                   <Link
-                    href="/launch-deck"
+                    href="/launchpad"
                     className="bg-gradient-to-b from-purple-400 to-purple-600 text-white font-bold py-3 px-6 rounded-md border-2 border-white shadow-md hover:shadow-lg transition-all"
                   >
                     View Launch Deck <ArrowRight className="inline-block ml-2 h-5 w-5" />
