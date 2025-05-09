@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
   --web4-primary: 124, 58, 237;
   --web4-secondary: 56, 189, 248;
   --web4-accent: 16, 185, 129;
@@ -22,7 +22,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-end-rgb));
+  background: rgb(var(--background-start-rgb));
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -35,6 +35,10 @@ body {
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
