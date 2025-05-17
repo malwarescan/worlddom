@@ -1,40 +1,27 @@
-import Link from "next/link"
-import Image from "next/image"
+"use client"
+
+import { useLanguage } from "./language-provider"
+import { ArrowRight } from "lucide-react"
 
 export default function HeroSection() {
+  const { t } = useLanguage()
+
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background video or image */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <Image src="/roblox-metaverse.jpg" alt="Roblox Metaverse" fill className="object-cover" priority />
-      </div>
-
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-          200M+ users, 2.5 hours
-          <br />
-          daily. Reach them with
-          <br />
-          Neural Command.
-        </h1>
-
-        <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-          Join the innovative brands already creating deep connections with a global audience on Roblox's immersive
-          platform.
-        </p>
-
-        <div className="mt-10">
-          <Link
-            href="/get-started"
-            className="inline-flex items-center px-8 py-3 border-2 border-white bg-transparent text-white text-lg font-medium rounded-md hover:bg-white hover:text-black transition-colors duration-300"
+    <section id="home" className="pt-28 pb-20 md:pt-40 md:pb-32">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 font-poppins">{t("hero.title")}</h1>
+          <h2 className="text-xl md:text-2xl font-medium mb-6 max-w-2xl gradient-text">{t("hero.subtitle")}</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-8">{t("hero.location")}</p>
+          <a
+            href="#contact"
+            className="inline-flex items-center px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-medium transition-all"
           >
-            GET STARTED
-          </Link>
+            {t("hero.cta")}
+            <ArrowRight size={18} className="ml-2" />
+          </a>
         </div>
-
-        <div className="mt-16 text-sm text-gray-400">Data as of Q2 2023</div>
       </div>
-    </div>
+    </section>
   )
 }
