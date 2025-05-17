@@ -15,20 +15,20 @@ export default function RobloxSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 z-0"></div>
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-3 font-poppins">{t("roblox.title")}</h2>
-                <p className="text-lg text-primary mb-6 font-medium">{t("roblox.subtitle")}</p>
+                <p className="text-lg text-blue-600 dark:text-blue-400 mb-6 font-medium">{t("roblox.subtitle")}</p>
                 <p className="text-gray-700 dark:text-gray-300 mb-8">{t("roblox.description")}</p>
 
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1 mr-3 flex-shrink-0" />
                     <span>{t("roblox.point1")}</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1 mr-3 flex-shrink-0" />
                     <span>{t("roblox.point2")}</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1 mr-3 flex-shrink-0" />
                     <span>{t("roblox.point3")}</span>
                   </li>
                 </ul>
@@ -47,11 +47,9 @@ export default function RobloxSection() {
           <div className="w-full lg:w-1/2 flex justify-center">
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-2xl animate-float"></div>
-              <img
-                src="/placeholder.svg?height=500&width=500"
-                alt="Roblox Marketing"
-                className="relative z-10 w-full h-full object-cover rounded-2xl shadow-xl"
-              />
+              <div className="relative z-10 w-full h-full rounded-2xl shadow-xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400">Roblox Marketing Image</span>
+              </div>
             </div>
           </div>
         </div>

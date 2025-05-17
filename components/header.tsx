@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md py-3" : "py-5"
+        isScrolled ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -76,7 +76,7 @@ export default function Header() {
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-white dark:text-white hover:text-blue-200 dark:hover:text-blue-200 transition-colors"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -85,32 +85,32 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
+        <div className="md:hidden bg-white dark:bg-slate-900 shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <a
               href="#home"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
+              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.home")}
             </a>
             <a
               href="#expertise"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
+              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.expertise")}
             </a>
             <a
               href="#achievements"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
+              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.achievements")}
             </a>
             <a
               href="#contact"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
+              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.contact")}

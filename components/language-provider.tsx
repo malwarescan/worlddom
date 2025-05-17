@@ -10,7 +10,7 @@ interface LanguageContextType {
   t: (key: string) => string
 }
 
-const translations = {
+const translations: Record<Language, Record<string, string>> = {
   en: {
     // Header
     "nav.home": "Home",
@@ -167,7 +167,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en")
 
   const t = (key: string): string => {
-    return translations[language][key as keyof (typeof translations)[typeof language]] || key
+    return translations[language][key] || key
   }
 
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>

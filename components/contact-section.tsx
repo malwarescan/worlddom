@@ -43,12 +43,12 @@ export default function ContactSection() {
               <div className="space-y-8">
                 <div>
                   <div className="flex items-center mb-3">
-                    <Mail className="w-5 h-5 text-primary mr-2" />
+                    <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
                     <h3 className="font-medium">{t("contact.email")}</h3>
                   </div>
                   <a
                     href="mailto:joel.m@neuralcommandllc.com"
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     joel.m@neuralcommandllc.com
                   </a>
@@ -56,12 +56,12 @@ export default function ContactSection() {
 
                 <div>
                   <div className="flex items-center mb-3">
-                    <Phone className="w-5 h-5 text-primary mr-2" />
+                    <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
                     <h3 className="font-medium">{t("contact.phone")}</h3>
                   </div>
                   <a
                     href="tel:+12135628438"
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     +1 213 562 8438
                   </a>
