@@ -1,3 +1,5 @@
+import CategoryImage from "./category-image"
+
 export default function CategoriesSection() {
   const categories = [
     {
@@ -40,17 +42,7 @@ export default function CategoriesSection() {
           {categories.map((category, index) => (
             <div key={index} className="category-card">
               <div className="h-48 overflow-hidden">
-                <img
-                  src={category.image || "/placeholder.svg"}
-                  alt={category.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null
-                    e.currentTarget.src =
-                      "https://images.unsplash.com/photo-1633613286991-611fe299c4be?q=80&w=2070&auto=format&fit=crop"
-                  }}
-                />
+                <CategoryImage src={category.image} alt={category.title} />
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-center mb-2">
