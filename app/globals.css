@@ -106,6 +106,35 @@ body {
   text-fill-color: transparent;
 }
 
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--primary)) 0%,
+    rgb(var(--secondary)) 25%,
+    rgb(var(--accent-1)) 50%,
+    rgb(var(--secondary)) 75%,
+    rgb(var(--primary)) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: gradientFlow 8s ease infinite;
+}
+
 .gradient-border {
   position: relative;
   border-radius: 0.5rem;

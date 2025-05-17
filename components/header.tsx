@@ -24,12 +24,12 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
+        isScrolled ? "bg-blue-900 shadow-md py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-xl font-bold font-poppins gradient-text">Neural Command</span>
+          <span className="text-xl font-bold font-poppins animated-gradient-text">Neural Command</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -60,7 +60,7 @@ export default function Header() {
           </a>
           <button
             onClick={toggleLanguage}
-            className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-800/40 transition-colors"
+            className="px-3 py-1 rounded-full bg-white/90 text-blue-600 hover:bg-white transition-colors"
           >
             {t("language")}
           </button>
@@ -70,13 +70,13 @@ export default function Header() {
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleLanguage}
-            className="px-3 py-1 mr-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-800/40 transition-colors"
+            className="px-3 py-1 mr-4 rounded-full bg-white/90 text-blue-600 hover:bg-white transition-colors"
           >
             {t("language")}
           </button>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-white dark:text-white hover:text-blue-200 dark:hover:text-blue-200 transition-colors"
+            className="text-white hover:text-blue-200 transition-colors"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -85,32 +85,32 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-900 shadow-lg">
+        <div className="md:hidden bg-blue-900 shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <a
               href="#home"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
+              className="py-2 px-4 text-white hover:bg-blue-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.home")}
             </a>
             <a
               href="#expertise"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
+              className="py-2 px-4 text-white hover:bg-blue-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.expertise")}
             </a>
             <a
               href="#achievements"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
+              className="py-2 px-4 text-white hover:bg-blue-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.achievements")}
             </a>
             <a
               href="#contact"
-              className="py-2 px-4 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-md"
+              className="py-2 px-4 text-white hover:bg-blue-800 rounded-md"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("nav.contact")}

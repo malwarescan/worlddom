@@ -14,7 +14,9 @@ export default function RobloxSection() {
             <div className="roblox-card p-8 rounded-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 z-0"></div>
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold mb-3 font-poppins">{t("roblox.title")}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-3 font-poppins text-gray-900 dark:text-white">
+                  {t("roblox.title")}
+                </h2>
                 <p className="text-lg text-blue-600 dark:text-blue-400 mb-6 font-medium">{t("roblox.subtitle")}</p>
                 <p className="text-gray-700 dark:text-gray-300 mb-8">{t("roblox.description")}</p>
 
