@@ -7,6 +7,7 @@ import { Search, Menu, X, ChevronDown } from "lucide-react"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAIMenuOpen, setIsAIMenuOpen] = useState(false)
+  const [isSEOMenuOpen, setIsSEOMenuOpen] = useState(false)
 
   return (
     <>
@@ -83,10 +84,54 @@ export default function Header() {
               </div>
 
               <div className="relative group px-3 py-2">
-                <button className="flex items-center nav-link">
+                <button
+                  className="flex items-center nav-link"
+                  onClick={() => setIsSEOMenuOpen(!isSEOMenuOpen)}
+                  onMouseEnter={() => setIsSEOMenuOpen(true)}
+                  onMouseLeave={() => setIsSEOMenuOpen(false)}
+                >
                   <span>SEO</span>
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
+
+                {isSEOMenuOpen && (
+                  <div
+                    className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    onMouseEnter={() => setIsSEOMenuOpen(true)}
+                    onMouseLeave={() => setIsSEOMenuOpen(false)}
+                  >
+                    <div className="py-1">
+                      <Link
+                        href="/seo-services"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => setIsSEOMenuOpen(false)}
+                      >
+                        SEO Services
+                      </Link>
+                      <Link
+                        href="/ai-services/neural-seo"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => setIsSEOMenuOpen(false)}
+                      >
+                        Neural SEO
+                      </Link>
+                      <Link
+                        href="/seo-services/local-seo"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => setIsSEOMenuOpen(false)}
+                      >
+                        Local SEO
+                      </Link>
+                      <Link
+                        href="/seo-services/technical-seo"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => setIsSEOMenuOpen(false)}
+                      >
+                        Technical SEO
+                      </Link>
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="relative group px-3 py-2">
@@ -135,7 +180,7 @@ export default function Header() {
               <Link href="/roblox-marketing" className="text-gray-300 hover:text-white py-2">
                 Roblox
               </Link>
-              <Link href="#" className="text-gray-300 hover:text-white py-2">
+              <Link href="/seo-services" className="text-gray-300 hover:text-white py-2">
                 SEO
               </Link>
               <Link href="#" className="text-gray-300 hover:text-white py-2">
