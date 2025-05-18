@@ -135,10 +135,10 @@ export default function Header() {
               </div>
 
               <div className="relative group px-3 py-2">
-                <button className="flex items-center nav-link">
+                <Link href="/portfolio" className="flex items-center nav-link">
                   <span>Portfolio</span>
                   <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
+                </Link>
               </div>
 
               <div className="relative group px-3 py-2">
