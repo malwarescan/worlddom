@@ -76,10 +76,10 @@ export default function Header() {
               </div>
 
               <div className="relative group px-3 py-2">
-                <button className="flex items-center nav-link">
+                <Link href="/roblox-marketing" className="flex items-center nav-link">
                   <span>Roblox</span>
                   <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
+                </Link>
               </div>
 
               <div className="relative group px-3 py-2">
@@ -132,7 +132,7 @@ export default function Header() {
               <Link href="/ai-services" className="text-gray-300 hover:text-white py-2">
                 AI Services
               </Link>
-              <Link href="#" className="text-gray-300 hover:text-white py-2">
+              <Link href="/roblox-marketing" className="text-gray-300 hover:text-white py-2">
                 Roblox
               </Link>
               <Link href="#" className="text-gray-300 hover:text-white py-2">
